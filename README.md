@@ -1,2 +1,5 @@
-# angular-ngrx-signals
-Material for the Angular Signals and Ngrx/signals course
+# Udemy course: Angular signals and NgRx/signals
+
+## Why would we want to use signals?
+
+### The magic behind angular - Automatic change detection
