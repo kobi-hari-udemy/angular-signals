@@ -1,27 +1,20 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss', 
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  readonly changeDetector = inject(ChangeDetectorRef);
-  message = 'Hello World!';
+  counter = 0;
 
-  changeMessage() {
-    setTimeout(() => {
-      this.message = 'Hello Angular!';
-      console.log('Message changed');
-    }, 100);
-
-    setTimeout(() => {
-      this.changeDetector.detectChanges();
-      console.log('Change detection triggered');
-    }, 2000);
+  constructor() {
+    setInterval(() => {
+      this.counter++;
+      console.log('Counter:', this.counter);
+    }, 3000);
   }
 }
