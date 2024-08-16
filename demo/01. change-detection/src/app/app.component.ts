@@ -6,10 +6,15 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@
   imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss', 
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent {
   counter = 0;
+
+  calculateValue() {
+    console.log('Evaluting value');
+    return 42;
+  }
 
   readonly changeDetector = inject(ChangeDetectorRef);
 
