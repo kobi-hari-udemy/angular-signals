@@ -11,12 +11,12 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@
 export class AppComponent {
   counter = 0;
 
+  // readonly changeDetector = inject(ChangeDetectorRef);
+
   calculateValue() {
-    console.log('Evaluting value');
+    console.log('Calculating value...');
     return 42;
   }
-
-  readonly changeDetector = inject(ChangeDetectorRef);
 
   doNothing() {}
   
@@ -26,8 +26,8 @@ export class AppComponent {
       console.log('Counter:', this.counter);
     }, 1000);
 
-    setInterval(() => {
-      this.changeDetector.detectChanges();
-    }, 5000)
+    // setInterval(() => {
+    //   this.changeDetector.detectChanges();
+    // }, 5000)
   }
 }
