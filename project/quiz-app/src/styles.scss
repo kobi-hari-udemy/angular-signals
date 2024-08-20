@@ -1,7 +1,7 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
+@use "sass:color";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,21 +10,113 @@
 @include mat.core();
 
 // Define the theme object.
-$quiz-app-theme: mat.define-theme((
-  color: (
-    theme-type: light,
-    primary: mat.$azure-palette,
-    tertiary: mat.$blue-palette,
-  ),
-  density: (
-    scale: 0,
+$quiz-app-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
   )
-));
+);
+
+@function get-contrast($theme, $palette, $key) {
+  $color: mat.get-theme-color($theme, $palette, $key);
+
+  @if (color.lightness($color) > 50) {
+    @return mat.get-theme-color($theme, $palette, 10);
+  } @else {
+    @return mat.get-theme-color($theme, $palette, 100);
+  }
+}
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 :root {
+  $palettes: (
+    (p, primary),
+    (a, secondary),
+    (t, tertiary),
+    (w, error),
+    (n, neutral),
+    (nv, neutral-variant)
+  );
+
+  $keys: (0, 10, 20, 25, 30, 35, 40, 50, 60, 70, 80, 90, 95, 98, 99, 100);
+
+  $roles: (
+    "background",
+    "error",
+    "error-container",
+    "inverse-on-surface",
+    "inverse-primary",
+    "inverse-surface",
+    "on-background",
+    "on-error",
+    "on-error-container",
+    "on-primary",
+    "on-primary-container",
+    "on-primary-fixed",
+    "on-primary-fixed-variant",
+    "on-secondary",
+    "on-secondary-container",
+    "on-secondary-fixed",
+    "on-secondary-fixed-variant",
+    "on-surface",
+    "on-surface-variant",
+    "on-tertiary",
+    "on-tertiary-container",
+    "on-tertiary-fixed",
+    "on-tertiary-fixed-variant",
+    "outline",
+    "outline-variant",
+    "primary",
+    "primary-container",
+    "primary-fixed",
+    "primary-fixed-dim",
+    "scrim",
+    "secondary",
+    "secondary-container",
+    "secondary-fixed",
+    "secondary-fixed-dim",
+    "surface",
+    "surface-bright",
+    "surface-container",
+    "surface-container-high",
+    "surface-container-highest",
+    "surface-container-low",
+    "surface-container-lowest",
+    "surface-dim",
+    "surface-tint",
+    "surface-variant",
+    "tertiary",
+    "tertiary-container",
+    "tertiary-fixed",
+    "tertiary-fixed-dim"
+  );
+
+  @each $role in $roles {
+    $c: mat.get-theme-color($quiz-app-theme, $role);
+    --r-#{$role}: #{$c};
+  }
+
+  @each $prefix, $palette in $palettes {
+    @each $key in $keys {
+      $c: mat.get-theme-color($quiz-app-theme, $palette, $key);
+      --#{$prefix}-#{$key}: #{$c};
+    }
+  }
+
+  @each $prefix, $palette in $palettes {
+    @each $key in $keys {
+      --#{$prefix}c-#{$key}: #{get-contrast($quiz-app-theme, $palette, $key)};
+    }
+  }
+
   @include mat.all-component-themes($quiz-app-theme);
 }
 
@@ -36,5 +128,11 @@ $quiz-app-theme: mat.define-theme((
 // @include mat.color-variants-backwards-compatibility($quiz-app-theme);
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
