@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { BehaviorSubject, combineLatest, debounceTime, map } from 'rxjs';
+import { BehaviorSubject, combineLatest, debounce, debounceTime, map } from 'rxjs';
+
+type Options = Record<string, string>;
 
 @Component({
   selector: 'app-root',
@@ -10,21 +12,22 @@ import { BehaviorSubject, combineLatest, debounceTime, map } from 'rxjs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  readonly firstName$ = new BehaviorSubject('John');
-  readonly lastName$ = new BehaviorSubject('Smith');
+  readonly options$ = new BehaviorSubject<Options>({'r': 'Red', 'g': 'Green', 'b': 'Blue'});
+  readonly selectedKey$ = new BehaviorSubject<string>('b');
 
-  readonly fullName$ = combineLatest([this.firstName$, this.lastName$]).pipe(
-    map(([firstName, lastName]) => `${firstName} ${lastName}`),
-    debounceTime(0)
+  readonly selectedValue$ = combineLatest([this.options$, this.selectedKey$]).pipe(
+    debounceTime(0),
+    map(([options, key]) => options[key]), 
   );
 
-  setName() {
-    this.firstName$.next('Jane');
-    this.lastName$.next('Doe');
+  switchOptions() {
+    this.options$.next({'m': 'Magenta', 'y': 'Yellow', 'c': 'Cyan'});
+    this.selectedKey$.next('c');
   }
 
   constructor() {
-    this.fullName$.subscribe(console.log);
+    this.selectedValue$.subscribe(console.log);
   }
+
 
 }
