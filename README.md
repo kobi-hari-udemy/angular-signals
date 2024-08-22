@@ -1,5 +1,4 @@
-# Udemy course: Angular signals and NgRx/signals
+https://github.com/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/03.%20fun-with-signals
 
-## Why would we want to use signals?
 
-### The magic behind angular - Automatic change detection
+https://stackblitz.com/fork/github/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/03.%20fun-with-signals?title=Signals%20Basic%20Primitives&file=src/app/app.component.ts
