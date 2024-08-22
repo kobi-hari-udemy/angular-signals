@@ -1,25 +1,26 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { myComputed, mySignal } from './my-signal/my-signal';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { mySignal } from './my-signal';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss', 
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  readonly firstSignal = mySignal(42);
-  readonly secondSignal = mySignal('Signals');
-  readonly derived = myComputed(() => this.firstSignal() + ' ' + this.secondSignal());
-
   // readonly firstSignal = signal(42);
   // readonly secondSignal = signal('Signals');
 
-  constructor() {
-    console.log(this.firstSignal());
-    console.log(this.secondSignal());
-  }
+  readonly firstSignal = mySignal(42);
+  readonly secondSignal = mySignal('Signals');
 
+
+  constructor() {
+    console.log('The first signal value is:', this.firstSignal());
+    console.log('The second signal value is:', this.secondSignal());
+
+  }
 }
