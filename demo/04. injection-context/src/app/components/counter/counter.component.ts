@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { Component, DestroyRef, inject, Injector, OnInit, runInInjectionContext } from '@angular/core';
 import { interval } from 'rxjs';
 import { startCounting } from '../../util';
 
@@ -10,11 +10,17 @@ import { startCounting } from '../../util';
   styleUrl: './counter.component.scss'
 })
 export class CounterComponent  {
+  private dr = inject(DestroyRef);
+  private injector = inject(Injector);
+
+
   constructor() {
     // startCounting();
   }
 
   ngOnInit() {
-    startCounting();
+    runInInjectionContext(this.injector, () => {
+      startCounting();
+    })
   }
 }
