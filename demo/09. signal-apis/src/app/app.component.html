@@ -11,4 +11,6 @@
 
 <app-currency-converter 
   [amount]="amount.value!" 
-  [currency]="currency.value!"/>
+  [currency]="currency.value!"
+  (refreshRequired)="refreshData()">
+  />

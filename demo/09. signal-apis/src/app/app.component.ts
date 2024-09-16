@@ -18,5 +18,9 @@ export class AppComponent {
   amount = new FormControl(100);
   currency = new FormControl('USD');
 
+  refreshData() {
+    console.log('refreshData');
+  }
+
 
 }
