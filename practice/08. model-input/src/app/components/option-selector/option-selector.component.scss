@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+    border-radius: 8px;
+
+    .option {
+        border: 1px solid gray;
+        padding: 4px;
+        cursor: pointer;
+        border-radius: 8px;
+        &:hover {
+            background-color: lightgray;
+        }
+
+        &.selected {
+            background-color: lightgreen;
+        }
+    }
+}
