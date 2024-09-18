@@ -1,13 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { RATES } from './component/currency-converter/rates';
-import { CurrencyConverterComponent } from "./component/currency-converter/currency-converter.component";
+import { RATES } from './components/currency-converter/rates';
+import { CurrencyConverterComponent } from "./components/currency-converter/currency-converter.component";
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { OptionSelectorComponent } from "./components/option-selector/option-selector.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CurrencyConverterComponent, ReactiveFormsModule],
+  imports: [RouterOutlet, CurrencyConverterComponent, ReactiveFormsModule, OptionSelectorComponent],
   // changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -15,8 +16,11 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class AppComponent {
   readonly currencies = Object.keys(RATES);
 
+  /*   */
+  readonly currency = signal('GBP');
+  /*   */
+
   amount = new FormControl(100);
-  currency = new FormControl('USD');
 
   refreshData() {
     console.log('refreshData');

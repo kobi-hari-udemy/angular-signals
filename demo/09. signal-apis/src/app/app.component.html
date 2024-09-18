@@ -3,14 +3,15 @@
 <input type="number" [formControl]="amount">
 
 <label>Currency</label>
-<select [formControl]="currency">
-  @for(option of currencies; track option) {
-    <option value="{{ option }}">{{ option }}</option>
-  }
-</select>
+
+<!---->
+<app-option-selector [options]="currencies"
+  [(selected)]="currency"
+  />
+<!---->
 
 <app-currency-converter 
   [amount]="amount.value!" 
-  [currency]="currency.value!"
+  [currency]="currency()"
   (refreshRequired)="refreshData()">
   />
