@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, effect, ElementRef, signal, viewChild, ViewChild, viewChildren, ViewContainerRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RATES } from './components/currency-converter/rates';
 import { CurrencyConverterComponent } from "./components/currency-converter/currency-converter.component";
@@ -14,6 +14,21 @@ import { OptionSelectorComponent } from "./components/option-selector/option-sel
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  // @ViewChild(CurrencyConverterComponent)
+  currencyConverter = viewChild.required(CurrencyConverterComponent);
+
+  currentConverters = viewChildren(CurrencyConverterComponent);
+
+  myRefDiv = viewChild.required('myRef', {read: ViewContainerRef});
+
+  stopRefresh() {
+    // this.currencyConverter().stopRefresh();
+    for (const converter of this.currentConverters()) {
+      converter.stopRefresh();
+    }
+  }
+
+
   readonly currencies = Object.keys(RATES);
 
   /*   */
@@ -25,6 +40,5 @@ export class AppComponent {
   refreshData() {
     console.log('refreshData');
   }
-
 
 }
