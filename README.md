@@ -15,3 +15,7 @@ https://stackblitz.com/fork/github/kobi-hari-udemy/angular-signals/tree/978e12d9
 
 
 https://github.com/kobi-hari-udemy/angular-signals/tree/9df51898c896d26b68a294d390e0280e38dcd784/practice/07.%20signal-apis
+
+
+https://github.com/kobi-hari-udemy/angular-signals/tree/b728881a04ef6336592d76af2cf3bb3e68e64481/practice/09.%20child-queries
+https://stackblitz.com/fork/github/kobi-hari-udemy/angular-signals/tree/b728881a04ef6336592d76af2cf3bb3e68e64481/practice/09.%20child-queries?title=Child%20Queries&file=README.md
