@@ -4,6 +4,10 @@
   [class.selected]="option === selected()"
   (click)="select(option)"
 >
-  {{ option }}
+  @if(templateDirective(); as directive) {
+    <ng-container *ngTemplateOutlet="directive.template; context: {$implicit: option}"/>
+  } @else {
+    {{ option }}
+  }
 </div>
 }

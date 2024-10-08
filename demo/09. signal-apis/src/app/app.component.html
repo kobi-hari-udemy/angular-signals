@@ -4,23 +4,21 @@
 
 <label>Currency</label>
 
-<!---->
-<app-option-selector [options]="currencies" />
-<!---->
+<app-option-selector 
+  [options]="currencies" 
+  [(selected)]="currency">
+
+  <span *appOption="let currency" class="currency-option">
+    <img [src]="'/icons/' + currency + '.svg'" alt="{{ currency }}" class="currency-icon"/>
+    {{ currency }}
+  </span>
+
+</app-option-selector>
 
 <app-currency-converter
   [amount]="amount.value!"
   [currency]="currency()"
   (refreshRequired)="refreshData()"
 />
-
-<app-currency-converter
-  [amount]="amount.value!"
-  [currency]="currency()"
-  (refreshRequired)="refreshData()"
-/>
-
-
-<div #myRef></div>
 
 <button (click)="stopRefresh()">Stop Refresh Events</button>
