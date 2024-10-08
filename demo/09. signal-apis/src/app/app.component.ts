@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, effect, ElementRef, signal, viewChild, ViewChild, viewChildren, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, effect, ElementRef, OnInit, signal, viewChild, ViewChild, viewChildren, ViewContainerRef } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RATES } from './components/currency-converter/rates';
 import { CurrencyConverterComponent } from "./components/currency-converter/currency-converter.component";
@@ -13,7 +13,7 @@ import { OptionSelectorComponent } from "./components/option-selector/option-sel
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit, OnInit{
   // @ViewChild(CurrencyConverterComponent)
   currencyConverter = viewChild.required(CurrencyConverterComponent);
 
@@ -26,6 +26,21 @@ export class AppComponent {
     for (const converter of this.currentConverters()) {
       converter.stopRefresh();
     }
+  }
+
+  constructor() {
+    effect(() => {
+      console.log('Effect', this.currencyConverter());
+    })
+  }
+
+
+  ngOnInit(): void {
+    console.log('Init');
+  }
+
+  ngAfterViewInit(): void {
+    console.log('After View Init')
   }
 
 
