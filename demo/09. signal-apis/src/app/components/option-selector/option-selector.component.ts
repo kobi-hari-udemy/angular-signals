@@ -11,7 +11,7 @@ import { Component, input, model, signal } from '@angular/core';
 export class OptionSelectorComponent {
   options = input.required<string[]>();
 
-  selected = model.required<string>() 
+  selected = signal('USD');
 
   select(option: string) {
     this.selected.set(option);

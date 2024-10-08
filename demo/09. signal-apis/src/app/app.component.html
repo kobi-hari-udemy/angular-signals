@@ -1,17 +1,26 @@
-<h1> Currency Converter</h1>
+<h1>Currency Converter</h1>
 <label>Amount</label>
-<input type="number" [formControl]="amount">
+<input type="number" [formControl]="amount" />
 
 <label>Currency</label>
 
 <!---->
-<app-option-selector [options]="currencies"
-  [(selected)]="currency"
-  />
+<app-option-selector [options]="currencies" />
 <!---->
 
-<app-currency-converter 
-  [amount]="amount.value!" 
+<app-currency-converter
+  [amount]="amount.value!"
   [currency]="currency()"
-  (refreshRequired)="refreshData()">
-  />
+  (refreshRequired)="refreshData()"
+/>
+
+<app-currency-converter
+  [amount]="amount.value!"
+  [currency]="currency()"
+  (refreshRequired)="refreshData()"
+/>
+
+
+<div #myRef></div>
+
+<button (click)="stopRefresh()">Stop Refresh Events</button>

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, EventEmitter, Input, input, OnChanges, output, Output, signal } from '@angular/core';
 import { RATES } from './rates';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject, interval, map, startWith, Subject, switchMap } from 'rxjs';
+import { BehaviorSubject, interval, map, startWith, Subject, switchMap, takeUntil } from 'rxjs';
 import { outputFromObservable, takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -14,10 +14,17 @@ import { outputFromObservable, takeUntilDestroyed } from '@angular/core/rxjs-int
 })
 export class CurrencyConverterComponent {
   readonly manualRefresh$ = new BehaviorSubject<void>(undefined);
+
+  private readonly stop$ = new Subject<void>();
+  stopRefresh() {
+    this.stop$.next();
+  }
+
   readonly refreshRequired$ = this.manualRefresh$.pipe(
-    switchMap(() => interval(5000).pipe(startWith(0))),
+    switchMap(() => interval(2000).pipe(startWith(0))),
     map(() => {}),
-    takeUntilDestroyed()
+    takeUntilDestroyed(), 
+    takeUntil(this.stop$)
   );
 
 
