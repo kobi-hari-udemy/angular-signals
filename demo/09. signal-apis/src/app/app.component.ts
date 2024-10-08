@@ -1,15 +1,7 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
   Component,
-  effect,
-  ElementRef,
-  OnInit,
   signal,
   viewChild,
-  ViewChild,
-  viewChildren,
-  ViewContainerRef,
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RATES } from './components/currency-converter/rates';
@@ -17,6 +9,7 @@ import { CurrencyConverterComponent } from './components/currency-converter/curr
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { OptionSelectorComponent } from './components/option-selector/option-selector.component';
 import { OptionDirective } from './components/option-selector/option.directive';
+import { RgbDirective } from './directives/rgb.directive';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +20,7 @@ import { OptionDirective } from './components/option-selector/option.directive';
     ReactiveFormsModule,
     OptionSelectorComponent,
     OptionDirective,
+    RgbDirective
   ],
   // changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
