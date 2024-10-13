@@ -1,0 +1,15 @@
+@if (movie$ | async; as movie) {
+    <div class="meta">
+        <img [src]="poster$ | async" alt="movie.name">
+        <h1>{{movie.name}}</h1>   
+        <div class="cast">
+            @for(actor of movie.cast; track actor) {
+                <div class="actor">{{actor}}</div>
+            }
+        </div> 
+    </div>
+    <p>
+        {{movie.description}}
+    </p>
+
+}

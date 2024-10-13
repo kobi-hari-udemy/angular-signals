@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--p-05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #112195;
+    --p-05: color-mix(in srgb, var(--primary) 10%, white);
+    --p-10: color-mix(in srgb, var(--primary) 20%, white);
+    --p-20: color-mix(in srgb, var(--primary) 40%, white);
+    --p-30: color-mix(in srgb, var(--primary) 60%, white);
+    --p-40: color-mix(in srgb, var(--primary) 80%, white);
+    --p-50: var(--primary);
+    --p-60: color-mix(in srgb, var(--primary) 80%, black);
+    --p-70: color-mix(in srgb, var(--primary) 60%, black);
+    --p-80: color-mix(in srgb, var(--primary) 40%, black);
+    --p-90: color-mix(in srgb, var(--primary) 20%, black);
+    --p-95: color-mix(in srgb, var(--primary) 10%, black);
+
+}

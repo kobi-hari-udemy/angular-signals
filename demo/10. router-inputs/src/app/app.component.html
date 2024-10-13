@@ -1,0 +1,15 @@
+<h1 routerLink="/">Movies App</h1>
+
+<div class="movies-list">
+  @for(movie of moviesService.movies(); track movie.id) {
+    <div class="movie" 
+      [routerLink]="['movie', movie.id]" 
+      routerLinkActive="selected">
+      {{movie.name}}
+    </div>  
+  }
+</div>
+
+<div class="movie-details">
+  <router-outlet/>
+</div>

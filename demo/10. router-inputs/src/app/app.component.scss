@@ -1,0 +1,49 @@
+:host {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    'header header'
+    'nav main';
+    
+
+    .movies-list {
+        grid-area: nav;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        min-width: max-content;
+        gap: 8px;
+
+        .movie {
+            color: var(--p-50);
+            font-size: 18px;
+            border: 1px solid var(--p-20);
+            padding: 4px;
+            cursor: pointer;
+            &:hover {
+                background-color: var(--p-10);
+                color: var(--p-50);
+            }
+            &.selected {
+                background-color: var(--p-20);
+                color: var(--p-50);
+            }
+        }
+    }
+
+    h1 {
+        grid-area: header;
+        background-color: var(--p-60);
+        color: var(--p-20);
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .movie-details {
+        background-color: var(--p-10);
+        display: flex;
+        flex-direction: column;
+    }
+}
