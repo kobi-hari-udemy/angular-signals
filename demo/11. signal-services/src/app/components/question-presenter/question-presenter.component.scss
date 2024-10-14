@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h1 {
+        color: var(--p-70);
+        text-decoration: underline var(--p-50);
+    };
+
+    .answers {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .answer {
+            display: flex;
+            flex-direction: row;
+            border: 1px solid var(--p-20);
+            background-color: var(--p-05);
+            color: var(--p-60);
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--p-10);
+            }
+
+            .index {
+                background-color: var(--p-30);
+                color: var(--p-70);
+                font-weight: 600;
+                padding: 8px;
+                border-radius: 0 12px 12px 0px;
+            }
+
+            .text {
+                padding: 8px;
+            }
+        }
+    }
+
+
+}

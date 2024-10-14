@@ -1,0 +1,10 @@
+<h1>{{question().caption}}</h1>
+
+<div class="answers">
+    @for(answer of question().answers; track $index) {
+        <div class="answer" (click)="onAnswer($index)">
+            <span class="index">{{$index + 1}}</span>
+            <span class="text">{{answer}}</span>
+        </div>
+    }
+</div>
