@@ -1,0 +1,9 @@
+<nav>
+  @for(name of names(); track name) {
+    <a [routerLink]="['/names', name]">{{ name }}</a>
+  }
+</nav>
+
+<div class="content">
+  <router-outlet/>
+</div>
