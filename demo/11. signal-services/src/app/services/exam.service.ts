@@ -24,15 +24,17 @@ export class ExamService {
       correctAnswerIndex: 1,
     },
   ]);
+  readonly #userAnswers = signal<number[]>([]);
+  readonly #isBusy = signal<boolean>(false);
+
+
   readonly questions = this.#questions.asReadonly();
 
-  readonly #userAnswers = signal<number[]>([]);
   readonly userAnswers = computed(() => this.#userAnswers().map<Answer>((ans, index) => ({
     userAnswerIndex: ans,
     isCorrect: ans === this.questions()[index].correctAnswerIndex
   })))
 
-  readonly #isBusy = signal<boolean>(false);
   readonly isBusy = this.#isBusy.asReadonly();
 
   readonly currentQuestionIndex = computed(() => this.userAnswers().length);
@@ -50,6 +52,9 @@ export class ExamService {
 
   readonly correctAnswersCount = computed(() => this.correctAnswers().length);
 
+  answerCurrentQuestion(answerIndex: number) {
+    this.#userAnswers.update(answers => [...answers, answerIndex]);
+  }
 
   constructor() {}
 }
