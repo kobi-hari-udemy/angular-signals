@@ -1,3 +1,13 @@
-<app-progress [value]="1" [max]="12"/>
-<app-question-presenter [question]="question()"/>
-<app-done [correct]="7" [total]="9"/>
+<app-progress 
+    [value]="store.currentQuestionIndex()" 
+    [max]="store.questionsCount()"/>
+
+@if(store.isQuizDone()) {
+    <app-done 
+        [correct]="store.correctAnswersCount()" 
+        [total]="store.questionsCount()"/>
+} @else {
+    <app-question-presenter [question]="store.currentQuestion()"/>
+}
+
+

@@ -9,9 +9,9 @@ export class ExamService {
 
   readonly #questions = signal<Question[]>([
     {
-      caption: 'How much is 4 + 4',
+      caption: 'How much is 4 * 3',
       answers: ['4', '8', '12', '16'],
-      correctAnswerIndex: 1,
+      correctAnswerIndex: 2,
     },
     {
       caption: 'How much is 5 + 5',
