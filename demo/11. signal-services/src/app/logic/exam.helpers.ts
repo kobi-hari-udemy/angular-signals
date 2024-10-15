@@ -26,7 +26,7 @@ function generateArithmeticQuestions(level: number, numQuestions: number = 10): 
         const num2 = Math.floor(Math.random() * (level * 10)) + 1;
         const operation = randomOperation();
         
-        let question = `${num1} ${operation} ${num2}`;
+        let question = `How much is ${num1} ${operation} ${num2}?`;
         let answer: number = calcAnswer(num1, num2, operation);
 
         const answers = new Set<number>();

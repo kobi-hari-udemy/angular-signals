@@ -14,7 +14,7 @@ import { DoneComponent } from "./components/done/done.component";
 })
 export class AppComponent {
   readonly question = signal<Question>({
-    caption: 'How many legs does a spider have?',
+    caption: 'How much is 4 + 4?',
     answers: ['4', '6', '8', '12'],
     correctAnswerIndex: 2,
   });
