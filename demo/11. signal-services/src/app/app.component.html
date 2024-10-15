@@ -1,3 +1,9 @@
+<div class="level">
+    <button>-</button>
+    <h1>Difficulty: 1</h1>
+    <button>+</button>
+</div>
+
 <app-progress 
     [value]="store.currentQuestionIndex()" 
     [max]="store.questionsCount()"/>
@@ -12,4 +18,10 @@
         (answered)="store.answerCurrentQuestion($event)"/>
 }
 
+@if(false) {
+    <div class="busy">
+        <div class="spinner"></div>
+        Please wait...
+    </div>    
+}
 
