@@ -1,7 +1,7 @@
 <div class="level">
-    <button>-</button>
-    <h1>Difficulty: 1</h1>
-    <button>+</button>
+    <button (click)="store.decreaseLevel()">-</button>
+    <h1>Difficulty: {{store.level()}}</h1>
+    <button (click)="store.increaseLevel()">+</button>
 </div>
 
 <app-progress 
@@ -11,14 +11,16 @@
 @if(store.isQuizDone()) {
     <app-done 
         [correct]="store.correctAnswersCount()" 
-        [total]="store.questionsCount()"/>
+        [total]="store.questionsCount()"
+        (restart)="store.repeatLevel()"
+        />
 } @else {
     <app-question-presenter 
         [question]="store.currentQuestion()"
         (answered)="store.answerCurrentQuestion($event)"/>
 }
 
-@if(false) {
+@if(store.isBusy()) {
     <div class="busy">
         <div class="spinner"></div>
         Please wait...

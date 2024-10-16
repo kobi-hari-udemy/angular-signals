@@ -36,7 +36,11 @@ function generateArithmeticQuestions(level: number, numQuestions: number = 10): 
             answers.add(getRandomAnswer(answer, level));
         }
 
-        const answersArray = Array.from(answers).map(a => a.toString());
+        const answersArray = Array
+            .from(answers)
+            .sort()
+            .map(a => a.toString());
+            
         const correctAnswerIndex = answersArray.indexOf(answer.toString());
 
         questions.push({ caption: question, answers: answersArray, correctAnswerIndex });

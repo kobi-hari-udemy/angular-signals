@@ -7,7 +7,7 @@ import { generateQuiz } from '../logic/exam.helpers';
   providedIn: 'root',
 })
 export class ExamGeneratorService {
-  generateQuiz(level: number): Observable<Question[]> {
+  generateExam(level: number): Observable<Question[]> {
     return of(generateQuiz(level)).pipe(delay(3000));
   }
 }
