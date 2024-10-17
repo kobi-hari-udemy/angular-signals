@@ -3,7 +3,7 @@
 ## Course Practices on StackBlitz
 
 ### Section 02 - Why would we want to use signals?
-* [Change Detection](https://stackblitz.com/edit/kobi-hari-udemy-angular-ngrx-signals-obnnh8?title=Change%20Detection%20OnPush&file=src/app/app.component.html)
+* [Change Detection](https://stackblitz.com/edit/kobi-hari-udemy-angular-ngrx-signals-obnnh8?title=Change%20Detection%20OnPush&file=src/app/app.component.ts)
 * [Async pipe](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/02.%20behavior-subject-state?title=Async%20Pipe%20RxJS&file=src/app/app.component.ts)
   
 ### Section 03 - Introduction to signals
