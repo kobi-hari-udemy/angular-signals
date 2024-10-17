@@ -1,2 +1,0 @@
-# Summary project - Quiz App
-
