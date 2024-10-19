@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   // 2. Convert the observable to a signal called number from the number$ observable.
 
- // 3. Add an element in the UI that displays the value of number signal.
+  // 3. Add an element in the UI that displays the value of the 'number' signal.
 
 
   readonly myName = signal('John Doe');
