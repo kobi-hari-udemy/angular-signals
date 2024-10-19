@@ -28,7 +28,7 @@ export class AppComponent {
   }
 
   incrementBothSignals() {
-    // 6. increment both number signals to 1 with a maximum of 10
+    // 6. increment both number signals by 1 with a maximum of 10
   }
 
 
