@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    // 5. challange - repeat steps 1 - 4 in this method
+    // 5. challenge - repeat steps 1 - 4 in this method
   }
 
 }
