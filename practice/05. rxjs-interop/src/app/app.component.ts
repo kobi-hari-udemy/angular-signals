@@ -10,20 +10,21 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  // 1. Create an obserbable that emits a value every second
+  // 1. Create an observable called number$ that emits an integer value every second
 
-  // 2. Convert the observable to a signal
+  // 2. Convert the observable to a signal called number from the number$ observable.
+
+ // 3. Add an element in the UI that displays the value of number signal.
 
 
   readonly myName = signal('John Doe');
-  // 3. Create an observable from the "myName" signal
+  // 4. Create an observable called myName$ from the "myName" signal
 
-  // 4. Subscribe to the observable and log the value to the console
-  
+  // 5. Subscribe to myName$ and log the value to the console so that you log every name change from the UI.  
 
 
   ngOnInit() {
-    // 5. challenge - repeat steps 1 - 4 in this method
+    // 6. challenge - repeat steps 1 - 4 in this method
   }
 
 }
