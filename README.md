@@ -15,7 +15,7 @@
 * [RxJS Interop](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/05.%20rxjs-interop?title=Signals%20RxJS%20Interop&file=src/app/app.component.ts)
 * [Immutable Operations](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/06.%20immutability?title=Immutability%20In%20Signals&file=src/app/app.component.ts)
 
-### Section 05 - Angular Signal based API
+### Section 05 - Angular Signal-based API
 * [Signal Inputs](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-signals/tree/9df51898c896d26b68a294d390e0280e38dcd784/practice/07.%20signal-apis?title=Signal%20Inputs&file=src/app/component/currency-converter/currency-converter.component.ts)
 * [Output and Model](https://stackblitz.com/edit/kobi-hari-udemy-angular-signals-u9azvx?file=src%2Fapp%2Fcomponents%2Foption-selector%2Foption-selector.component.ts&title=Model%20Inputs%20Outputs)
 * [Child Queries](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-signals/tree/b728881a04ef6336592d76af2cf3bb3e68e64481/practice/09.%20child-queries?title=Child%20Queries&file=README.md)
