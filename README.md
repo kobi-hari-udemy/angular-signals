@@ -1,9 +1,14 @@
-# Course Material
+# Modern Angular with Signals - The missing guide
+![thumbnail](./slides/Thumbnail.png)
 
-In this repository you can find all material for the course **Modern Angular with Signals - The missing guide** on Udemy.
-You can find the course itself [here](https://www.udemy.com/course/modern-angular-with-signals-the-missing-guide/?referralCode=D6E6DCE04E9A41ADC517)
+## Hello
+This repository contains the material for the *UDEMY* course
+> [Modern Angular with Signals - The missing guide](https://www.udemy.com/course/modern-angular-with-signals-the-missing-guide/?referralCode=D6E6DCE04E9A41ADC517)
 
-## Course Practices on StackBlitz
+In this repository you can find all material for the course 
+
+
+## Practice Exercises on StackBlitz
 
 ### Section 02 - Why would we want to use signals?
 * [Change Detection](https://stackblitz.com/edit/kobi-hari-udemy-angular-ngrx-signals-obnnh8?title=Change%20Detection%20OnPush&file=src/app/app.component.ts)
