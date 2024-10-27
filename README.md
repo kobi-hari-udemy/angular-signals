@@ -1,5 +1,8 @@
 # Course Material
 
+In this repository you can find all material for the course **Modern Angular with Signals - The missing guide** on Udemy.
+You can find the course itself [here](https://www.udemy.com/course/modern-angular-with-signals-the-missing-guide/?referralCode=D6E6DCE04E9A41ADC517)
+
 ## Course Practices on StackBlitz
 
 ### Section 02 - Why would we want to use signals?
