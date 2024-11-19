@@ -1,0 +1,11 @@
+<h2>Inventory</h2>
+<button (click)="addProduct()">Add Product</button>
+<button (click)="removeProduct()">Remove Product</button>
+<pre>
+  {{ products() | json }}
+</pre>
+
+
+<h2>Selected: {{selectedProduct()}}</h2>
+<button (click)="nextProduct()">Next Product</button>
+<button (click)="prevProduct()">Prev Product</button>
