@@ -17,6 +17,7 @@ In this repository you can find all material for the course
 ### Section 03 - Introduction to signals
 * [Writeable and Computed signals](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/03.%20fun-with-signals?title=Signals%20Basic%20Primitives&file=src/app/app.component.ts)
 * [Effects](https://stackblitz.com/edit/kobi-hari-udemy-angular-ngrx-signals-z2q1la?file=src%2Fapp%2Fapp.component.ts&title=Signals%20Basic%20Primitives)
+* [Linked Signals](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/c3d095448649d7d04702db85188e98154d1e1b70/practice/11.%20linked-signal?title=Linked%20Signals&file=src/app/app.component.ts)
 
 ### Section 04 - Deep Dive into signals
 * [Signals and Injection Context](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-ngrx-signals/tree/main/practice/04.%20injection-context?title=Signals%20And%20Injection&file=src/app/components/counter/counter.component.ts)
@@ -31,3 +32,4 @@ In this repository you can find all material for the course
 
 
 
+https://github.com/kobi-hari-udemy/angular-signals/tree/c3d095448649d7d04702db85188e98154d1e1b70/practice/11.%20linked-signal
