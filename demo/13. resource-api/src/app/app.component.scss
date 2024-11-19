@@ -1,0 +1,28 @@
+:host {
+    display: flex;
+    flex-direction: column;
+  
+    .toolbar {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+  
+      img {
+        height: 21px;
+      }
+    }
+  
+    .results {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+  
+      .item {
+        padding: 4px;
+        border-radius: 4px;
+        border: 1px solid black;
+      }
+    }
+  }
