@@ -1,0 +1,10 @@
+<div class="toolbar">
+  <input type="text" #searchBox (input)="keyword.set(searchBox.value)">
+  <img src="busy.gif">
+</div>
+
+<div class="results">
+  @for(color of results(); track color.name) {
+      <div class="item" [style.background]="color.code">{{color.name}}</div>
+  }
+</div>
