@@ -30,6 +30,7 @@ In this repository you can find all material for the course
 * [Child Queries](https://stackblitz.com/fork/github/kobi-hari-udemy/angular-signals/tree/b728881a04ef6336592d76af2cf3bb3e68e64481/practice/09.%20child-queries?title=Child%20Queries&file=README.md)
 * [Router Input Bindings](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/2a2e76747d263b6e7564d3fdfc4935eb58958eef/practice/10.%20router-inputs?title=Router%20Input%20Binding&file=README.md)
 
+### Section 06 - Signal Based Services
+* [Signal based service](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/12.%20signal-services?title=Signal%20Based%20Service&file=src/app/app.component.ts)
+* [Resource Apis](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/13.%20resource-api?title=Async%20Resource%20APIs&file=src/app/app.component.ts)
 
-
-https://github.com/kobi-hari-udemy/angular-signals/tree/c3d095448649d7d04702db85188e98154d1e1b70/practice/11.%20linked-signal
