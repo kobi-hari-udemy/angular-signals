@@ -1,0 +1,9 @@
+<h1>Quiz is done</h1>
+<p>
+  You have answered {{ correct() }} out of {{ total() }} questions correctly.
+</p>
+<h2>
+    Score: {{ score() | percent}}
+</h2>
+
+<button (click)="restart.emit()">Restart Difficulty</button>

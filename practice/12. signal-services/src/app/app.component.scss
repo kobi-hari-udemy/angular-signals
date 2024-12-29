@@ -1,0 +1,72 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+
+    .level {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+
+        h1 {
+            color: var(--p-60);
+        }
+
+        button {
+            width: 50px;
+            border: 1px solid var(--p-60);
+            background-color: var(--p-20);
+            font-size: 32px;
+            color: var(--p-60);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 4px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: var(--p-40);
+            }
+        }
+    }
+
+    .busy {
+        position: absolute;
+        width: 100%;
+        top: 63px;
+        bottom: 0;
+        inset-inline-start: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        font-size: 40px;
+        color: white;
+
+        .spinner {
+            width: 100px;
+            height: 100px;
+            border: 10px solid rgba(255, 255, 255, 0.3);
+            border-top: 10px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    }
+}
