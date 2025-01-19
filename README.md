@@ -7,6 +7,10 @@ This repository contains the material for the *UDEMY* course
 
 In this repository you can find all material for the course 
 
+## Courses in **The missing guide** Series:
+* [Modern Angular with Signals - The missing guide](https://www.udemy.com/course/modern-angular-with-signals-the-missing-guide/?referralCode=D6E6DCE04E9A41ADC517)
+* [NgRx Signal Store - The missing guide](https://www.udemy.com/course/ngrx-signal-store-the-missing-guide/?referralCode=05384AF83051655A1C59)
+
 
 ## Practice Exercises on StackBlitz
 
