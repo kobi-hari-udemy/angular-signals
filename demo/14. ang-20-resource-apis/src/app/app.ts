@@ -2,10 +2,12 @@ import { CommonModule } from '@angular/common';
 import { httpResource } from '@angular/common/http';
 import { Component, resource, ResourceStreamItem, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BookCard } from "./components/book-card/book-card";
+import { Book } from './models/book';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, BookCard],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -14,7 +16,7 @@ export class App {
 
   selectedBookId = signal('');
 
-  selectedBook = httpResource(() => this.selectedBookId() 
+  selectedBook = httpResource<Book>(() => this.selectedBookId() 
     ? `http://localhost:3000/api/books/${this.selectedBookId()}`
     : undefined);
 

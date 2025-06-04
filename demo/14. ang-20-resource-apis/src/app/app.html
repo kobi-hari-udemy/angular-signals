@@ -12,9 +12,10 @@
 </pre>
 
 <h2>Selected book</h2>
-<pre>
-  {{selectedBook.value() | json}}
-</pre>
+@if(selectedBook.value(); as book) {
+  <app-book-card [book]="book" [stock]="selectedStock.value() ?? 0"></app-book-card>
+
+}
 
 <h2>Stock</h2>
 <pre>

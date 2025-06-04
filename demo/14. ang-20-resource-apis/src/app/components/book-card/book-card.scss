@@ -1,0 +1,70 @@
+:host {
+  background: linear-gradient(135deg, #f9f9ff 0%, #f2f6fa 100%);
+  border-radius: 18px;
+  border: 1.5px solid #c5cae9;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
+  margin: 2rem auto;
+  max-width: 430px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 8px 32px 0 rgba(40, 53, 147, 0.13);
+  position: relative;
+
+  .book-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .book-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #283593;
+    margin: 0 0 0.2rem 0;
+    letter-spacing: 0.01em;
+    line-height: 1.15;
+  }
+
+  .book-author {
+    font-size: 1.08rem;
+    color: #7b809a;
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+  }
+
+  .book-description {
+    font-size: 1.13rem;
+    color: #343645;
+    line-height: 1.6;
+    word-break: break-word;
+    font-family: "Georgia", "Times New Roman", serif;
+    opacity: 0.96;
+  }
+
+  .book-stock {
+    position: absolute;
+    font-size: 1.08rem;
+    color: #7b809a;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    top: -20px;
+    right: 20px;
+    border: 1px solid #c5cae9;
+    border-radius: 12px;
+    padding: 0.3rem 0.8rem;
+    background-color: #416990;
+    color: #b6c9dd;
+
+    .stock-label {
+      font-weight: 600;
+      color: #f2f6fa;
+    }
+
+    .stock-quantity {
+      font-weight: 500;
+      color: #f2f6fa;
+    } 
+  }
+}
