@@ -1,0 +1,40 @@
+{
+  "name": "resource-apis",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "concurrently \"npm run start:client\" \"npm run start:server\"",
+    "start:client": "ng serve",
+    "start:server": "node src/server/main.js"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^20.0.0",
+    "@angular/compiler": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/forms": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
+    "@angular/router": "^20.0.0",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "uuid": "^9.0.1",
+    "ws": "^8.17.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^20.0.0",
+    "@angular/cli": "^20.0.0",
+    "@angular/compiler-cli": "^20.0.0",
+    "@types/jasmine": "~5.1.0",
+    "jasmine-core": "~5.7.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.8.2"
+  }
+}

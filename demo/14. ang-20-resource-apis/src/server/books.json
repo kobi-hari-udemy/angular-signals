@@ -1,0 +1,212 @@
+[
+  {
+    "id": "e58dca64-4099-4e28-bd62-a83e83782934",
+    "title": "The Last Library",
+    "author": "Author A. Example",
+    "description": "A thrilling mystery set in a forgotten village.",
+    "stock": 80
+  },
+  {
+    "id": "27eec969-1138-43c3-9e11-fe92cda1e892",
+    "title": "Whispering Shadows",
+    "author": "Author B. Example",
+    "description": "Science fiction meets classic adventure in this futuristic tale.",
+    "stock": 64
+  },
+  {
+    "id": "c783f528-9ded-4a4b-9206-a0e20386ba6a",
+    "title": "Infinite Horizon",
+    "author": "Author C. Example",
+    "description": "A young girl's journey across parallel universes.",
+    "stock": 6
+  },
+  {
+    "id": "2936a7a4-ae8e-42e6-82ae-c6616bb46b8f",
+    "title": "Code of the Ancients",
+    "author": "Author D. Example",
+    "description": "A detective unravels the secrets of a haunted library.",
+    "stock": 29
+  },
+  {
+    "id": "6c2f2e0d-6063-45c7-ad36-cfd1f90dab83",
+    "title": "Lost in Lore",
+    "author": "Author E. Example",
+    "description": "Epic fantasy with dragons, magic, and ancient curses.",
+    "stock": 8
+  },
+  {
+    "id": "46e80dcf-c305-4fb4-84a5-5380c2649b8e",
+    "title": "Echoes of Tomorrow",
+    "author": "Author F. Example",
+    "description": "A heartwarming story of friendship and hope.",
+    "stock": 56
+  },
+  {
+    "id": "7d26b753-d6c5-4f9a-81cf-2e99ab19ec60",
+    "title": "The Forgotten Realm",
+    "author": "Author G. Example",
+    "description": "Time travel, betrayal, and redemption.",
+    "stock": 77
+  },
+  {
+    "id": "a3fe0ebd-cd1a-42f8-8dfe-0f7c14065fab",
+    "title": "The Quantum Paradox",
+    "author": "Author H. Example",
+    "description": "An AI gains consciousness and questions its existence.",
+    "stock": 100
+  },
+  {
+    "id": "22d0eb40-8df0-46d6-9681-e12bb578acc2",
+    "title": "Midnight Sun",
+    "author": "Author I. Example",
+    "description": "A poet discovers the secret to immortality.",
+    "stock": 89
+  },
+  {
+    "id": "e1114979-b4c8-4d15-b99f-03bc181e2642",
+    "title": "The Dreamer's Diary",
+    "author": "Author J. Example",
+    "description": "A lost artifact that could change the world forever.",
+    "stock": 99
+  },
+  {
+    "id": "5b0d9b8a-3036-4fb9-8a89-69310c79dddc",
+    "title": "Beneath the Surface",
+    "author": "Author K. Example",
+    "description": "Romance blossoms in a world at war.",
+    "stock": 55
+  },
+  {
+    "id": "849f4bbb-c314-47df-9632-984eb3d3f6c4",
+    "title": "Tides of Time",
+    "author": "Author L. Example",
+    "description": "Ancient relics, secret societies, and high-speed chases.",
+    "stock": 25
+  },
+  {
+    "id": "7ac9b27c-152d-478a-8d75-447765f0b9da",
+    "title": "Fragments of Infinity",
+    "author": "Author M. Example",
+    "description": "A brilliant hacker faces the ultimate test.",
+    "stock": 82
+  },
+  {
+    "id": "769523a1-34a7-4b78-ae16-e49cb758dda4",
+    "title": "The Moonlit Path",
+    "author": "Author N. Example",
+    "description": "When dreams begin to predict the future.",
+    "stock": 86
+  },
+  {
+    "id": "6f8a60b2-2a49-4a45-978a-d2a4b36c380d",
+    "title": "Beyond the Veil",
+    "author": "Author O. Example",
+    "description": "A coming-of-age story in a post-apocalyptic landscape.",
+    "stock": 70
+  },
+  {
+    "id": "cfc25521-aedd-416c-b233-fdab12017b41",
+    "title": "Chasing Stardust",
+    "author": "Author P. Example",
+    "description": "A deep dive into the mind of a genius inventor.",
+    "stock": 40
+  },
+  {
+    "id": "fee5d7e2-b95f-4082-9c27-f6202e90912b",
+    "title": "The Ember Key",
+    "author": "Author Q. Example",
+    "description": "Heists, puzzles, and lost treasures await.",
+    "stock": 94
+  },
+  {
+    "id": "f016b130-5872-4f92-8649-188dfc15f95b",
+    "title": "Voices from the Deep",
+    "author": "Author R. Example",
+    "description": "A magical realism journey through grief and healing.",
+    "stock": 28
+  },
+  {
+    "id": "dc10fd5f-956f-4752-8681-9c8134fb4073",
+    "title": "Journey to Nowhere",
+    "author": "Author S. Example",
+    "description": "An astronaut stranded on a distant moon.",
+    "stock": 57
+  },
+  {
+    "id": "188be7ef-d3a6-4831-9de3-9fc6b9b9f377",
+    "title": "The Alchemist's Gift",
+    "author": "Author T. Example",
+    "description": "A cursed family and the price of breaking the spell.",
+    "stock": 20
+  },
+  {
+    "id": "a02af954-373f-4913-a078-9c6e42e72e24",
+    "title": "A Song of Circuits",
+    "author": "Author U. Example",
+    "description": "When art becomes a matter of life and death.",
+    "stock": 85
+  },
+  {
+    "id": "302b1f87-0141-470a-9774-30515d61faeb",
+    "title": "Painting the Silence",
+    "author": "Author V. Example",
+    "description": "Secrets hidden in plain sight.",
+    "stock": 9
+  },
+  {
+    "id": "3ad9ee33-313c-4b09-8c4b-d8c9d4144952",
+    "title": "The Glass Fortress",
+    "author": "Author W. Example",
+    "description": "A fortress built from glass hides the truth.",
+    "stock": 49
+  },
+  {
+    "id": "19e77d70-3e88-436d-9fca-9d60d141b37d",
+    "title": "Gravity's Child",
+    "author": "Author X. Example",
+    "description": "A child who can bend gravity must save the world.",
+    "stock": 69
+  },
+  {
+    "id": "3ee14e09-855e-4b91-a805-7db323566d85",
+    "title": "Shadow of the Mountain",
+    "author": "Author Y. Example",
+    "description": "A mountaineer haunted by past mistakes.",
+    "stock": 75
+  },
+  {
+    "id": "66a3c3a9-b564-4c44-8fd0-bc44caa25aa0",
+    "title": "The Booksmith's Secret",
+    "author": "Author Z. Example",
+    "description": "The craftsman who binds stories to reality.",
+    "stock": 7
+  },
+  {
+    "id": "5268b8bf-38cd-41ff-898f-80bdf62e73a2",
+    "title": "The Timekeeper's Tale",
+    "author": "Author [. Example",
+    "description": "Tales from a clockmaker who can stop time.",
+    "stock": 96
+  },
+  {
+    "id": "16332906-7c00-4fc8-ac36-fe86b0ba7d01",
+    "title": "Gates of Eden",
+    "author": "Author \\. Example",
+    "description": "The search for paradise in a fallen world.",
+    "stock": 90
+  },
+  {
+    "id": "928091f8-2a1b-4640-94c5-0ca17b294748",
+    "title": "Mirrors of the Mind",
+    "author": "Author ]. Example",
+    "description": "Reflections reveal more than just appearances.",
+    "stock": 20
+  },
+  {
+    "id": "fb674fb4-9bd6-43bb-b177-8c139ede472c",
+    "title": "The Lantern Room",
+    "author": "Author ^. Example",
+    "description": "A lighthouse keeper\u2019s mysterious legacy.",
+    "stock": 63
+  }
+]
