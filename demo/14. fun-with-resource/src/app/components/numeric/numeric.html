@@ -1,0 +1,8 @@
+@if(label()) {
+    <span class="label">{{label()}}</span>
+}
+
+<button (click)="dec()">-</button>
+<input type="range" min="0" max="100" step="1" [(ngModel)]="value" />
+<button (click)="inc()">+</button>
+<span>{{value()}}</span>
