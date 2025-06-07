@@ -15,4 +15,7 @@ export class App {
     defaultValue: -1
   });
 
+  constructor() {
+  }
+
 }

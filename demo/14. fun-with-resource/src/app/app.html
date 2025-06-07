@@ -1,4 +1,11 @@
 <div class="resource-state">
   <span class="label">Value</span>
-  <span class="value">{{apiNumber.value()}}</span> 
+  <span class="value">{{apiNumber.value()}}</span>
+  <span class="label">Status</span>
+  <span class="status" [attr.data-status]="apiNumber.status()"
+    >{{apiNumber.status()}}</span
+  >
+  @if(apiNumber.isLoading()) {
+  <div class="busy">Loading...</div>
+  }
 </div>
