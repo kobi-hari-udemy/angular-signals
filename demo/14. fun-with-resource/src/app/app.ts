@@ -15,6 +15,10 @@ export class App {
     defaultValue: -1
   });
 
+  reloadNumber() {
+    this.apiNumber.reload();
+  }
+
   constructor() {
   }
 
