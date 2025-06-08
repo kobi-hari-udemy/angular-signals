@@ -10,5 +10,11 @@ import { Api } from './services/api';
 export class App {
   readonly api = inject(Api);
 
-  // Add the resource here, call it 'apiNumber'
+  readonly apiNumber = null;
+
+  reloadNumber() {
+  }
+
+  setLocalValue(val: number) {
+  }
 }
