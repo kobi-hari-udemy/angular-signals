@@ -19,6 +19,12 @@ export class App {
     this.apiNumber.reload();
   }
 
+  setLocalValue(val: number) {
+    this.apiNumber.set(val);
+  }
+
+
+
   constructor() {
   }
 

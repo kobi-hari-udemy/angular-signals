@@ -1,5 +1,9 @@
 <div class="tools">
   <button (click)="reloadNumber()">Reload Number</button>
+  <button (click)="setLocalValue(myNumberInput.valueAsNumber)">
+    Set Local Value
+  </button>
+  <input type="number" #myNumberInput>
 </div>
 
 <div class="resource-state">
