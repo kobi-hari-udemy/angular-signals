@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55em 1.2em;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.6em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.07);
+  transition:
+    background 0.15s,
+    color 0.15s,
+    box-shadow 0.15s,
+    transform 0.07s;
+
+  &:hover,
+  &:focus-visible {
+    background: #1747b0;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+    outline: none;
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  &:active {
+    background: #0e306e;
+    transform: scale(0.97);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background: #e5e9f2;
+    color: #a3a9b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    pointer-events: none;
+  }
+}
