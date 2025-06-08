@@ -1,0 +1,130 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1rem;
+    background: #f7fafd;
+    border-radius: 0.7rem;
+    box-shadow: 0 2px 8px rgba(100, 140, 180, 0.08);
+    width: fit-content;
+    margin: 1rem auto;
+
+    button {
+      padding: 0.38em 1.1em;
+      font-size: 0.97rem;
+      border-radius: 0.5em;
+      min-width: 7.2em;
+    }
+
+    input[type="number"] {
+      width: 5em;
+      font-size: 1rem;
+      padding: 0.35em 0.7em;
+      border: 1px solid #c9d5ee;
+      border-radius: 0.5em;
+      background: #fff;
+      color: #2a3956;
+      margin-left: 0.3rem;
+      transition: border 0.13s;
+      &:focus {
+        border-color: #2563eb;
+        outline: none;
+      }
+    }
+  }
+
+  .resource-state {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    background: #f7fafd;
+    padding: 0.8rem 1.4rem;
+    border-radius: 0.7rem;
+    box-shadow: 0 2px 8px rgba(100, 140, 180, 0.09);
+    font-size: 1rem;
+    width: fit-content;
+    margin: 1rem auto;
+    position: relative;
+    min-height: 2.6em;
+
+    .label {
+      color: #8ea0be;
+      font-size: 0.98em;
+      font-weight: 500;
+      margin-right: 0.3em;
+    }
+
+    .value {
+      color: #2563eb;
+      font-weight: 600;
+      font-size: 1.09em;
+      padding: 0 0.5em;
+    }
+
+    .status {
+      font-size: 1em;
+      font-weight: 600;
+      color: #fff;
+      background: #31c48d;
+      border-radius: 0.8em;
+      padding: 0.1em 0.8em;
+      margin-right: 0.4em;
+      &[data-status="local"] {
+        background: #9336b5;
+        color: #fff;
+      }
+      &[data-status="loading"] {
+        background: #aeb523;
+        color: #fff;
+      }
+      &[data-status="reloading"] {
+        background: #a8821a;
+        color: #fff;
+      }
+      &[data-status="error"] {
+        background: #ef4444;
+        color: #fff;
+      }
+    }
+
+    .error {
+      color: #ef4444;
+      font-weight: 500;
+      font-size: 0.97em;
+      padding: 0 0.35em;
+      max-width: 12em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .busy {
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, 0.3em);
+      background: #f0f6ff;
+      color: #2563eb;
+      font-size: 0.97em;
+      padding: 0.28em 1.2em;
+      border-radius: 0.7em;
+      box-shadow: 0 2px 12px rgba(37, 99, 235, 0.04);
+      font-weight: 500;
+      animation: fadeIn 0.5s;
+      margin-top: 0.2em;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
