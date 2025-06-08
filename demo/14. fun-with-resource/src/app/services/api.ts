@@ -4,14 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class Api {
-  getRandomNumberAsync() {
+  getRandomNumberAsync(abortSignal?: AbortSignal) {
     console.log('[API] Getting a random number...');
     return new Promise<number>((resolve) => {
-      setTimeout(() => {
+      let handle: number | null = null;
+      handle = setTimeout(() => {
         const res = Math.floor(Math.random() * 100);
         console.log('[API] Random number received', res);
         resolve(res);
+        handle = null;
       }, 3000);
+
+      abortSignal?.addEventListener('abort', () => {
+        if (handle) {
+          clearTimeout(handle);
+          console.log('Random Number - Cancelled!!!')
+        }
+      })
     });
   }
 

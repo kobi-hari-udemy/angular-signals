@@ -11,7 +11,7 @@ export class App {
   readonly api = inject(Api);
 
   readonly apiNumber = resource({
-    loader: () => this.api.getRandomNumberAsync(), 
+    loader: (options) => this.api.getRandomNumberAsync(options.abortSignal), 
     defaultValue: -1
   });
 
