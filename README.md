@@ -36,5 +36,9 @@ In this repository you can find all material for the course
 
 ### Section 06 - Signal Based Services
 * [Signal based service](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/12.%20signal-services?title=Signal%20Based%20Service&file=src/app/app.component.ts)
-* [Resource Apis](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/13.%20resource-api?title=Async%20Resource%20APIs&file=src/app/app.component.ts)
+
+### Section 7 - Resource APIs
+* Getting Started with Resource APIs
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/14.%20getting-started-with-resources)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/14.%20getting-started-with-resources?title=Async%20Resource%20APIs&file=src/app/app.component.ts)
 
