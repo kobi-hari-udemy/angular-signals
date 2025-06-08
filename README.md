@@ -47,3 +47,6 @@ In this repository you can find all material for the course
 * Resource Error Handling
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/16.%20resource-error-handling)
   * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/16.%20resource-error-handling?title=Resources%20Error%20Handling&file=README.md)
+* Code Along - The resource books store
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/17.%20books-store-with-resources)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/17.%20books-store-with-resources?title=Resources%20Book%20Store&file=README.md)

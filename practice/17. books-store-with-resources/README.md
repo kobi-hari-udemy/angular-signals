@@ -1,4 +1,3 @@
-https://github.com/kobi-hari-udemy/private-angular-signals/tree/main/ang-20-resource-apis
-
-
-https://stackblitz.com/fork/github/kobi-hari-udemy/private-angular-signals/tree/main/ang-20-resource-apis?title=Resources%20Ang-20&file=README.md
+# Code Along - The Books Store Application
+Use this project to code along with me. 
+We will implement - step by step - A signal based service that uses resource apis to load and maintain the state of the application
