@@ -41,4 +41,6 @@ In this repository you can find all material for the course
 * Getting Started with Resource APIs
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/14.%20getting-started-with-resources)
   * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/14.%20getting-started-with-resources?title=Basics%20of%20Resources&file=README.md)
-
+* Resources with Params
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/15.%20resources-with-params)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/15.%20resources-with-params?title=Resources%20with%20Params&file=README.md)
