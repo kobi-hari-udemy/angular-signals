@@ -1,0 +1,10 @@
+:host {
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+
+    app-header {
+        grid-column: 1 / -1;
+    }
+}

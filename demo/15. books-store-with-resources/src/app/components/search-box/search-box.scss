@@ -1,0 +1,49 @@
+:host {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+
+  input[type="search"] {
+    width: 100%;
+    padding: 0.5em 2.5em 0.5em 1em;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 2em;
+    background: var(--search-bg, #fafbfc);
+    color: var(--search-text, #222);
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    // Remove default clear button on Edge/IE
+    &::-ms-clear {
+      display: none;
+    }
+
+    // Remove default X in Chrome/Safari
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      display: none;
+    }
+
+    // Optional: Add a custom search icon (SVG background)
+    background-image: url('data:image/svg+xml;utf8,<svg fill="gray" viewBox="0 0 20 20" width="18" height="18" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7" stroke="gray" stroke-width="2" fill="none"/><line x1="14" y1="14" x2="19" y2="19" stroke="gray" stroke-width="2" stroke-linecap="round"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1.2em;
+
+    &:focus {
+      outline: none;
+      border-color: #89aaff;
+      box-shadow: 0 0 0 2px #c7dbff;
+      background: var(--search-bg-focus, #fff);
+    }
+
+    &::placeholder {
+      color: #aaa;
+      opacity: 1;
+      font-style: italic;
+    }
+  }
+}
