@@ -1,15 +1,20 @@
-<app-numeric [(value)]="source" label="source"/>
+<app-numeric [(value)]="source" label="source" />
 <div class="tools">
   <button (click)="reloadNumber()">Reload Number</button>
   <button (click)="setLocalValue(myNumberInput.valueAsNumber)">
     Set Local Value
   </button>
-  <input type="number" #myNumberInput>
+  <input type="number" #myNumberInput />
 </div>
 
 <div class="resource-state">
+  @if (apiNumber.error()) { 
+    <span class="label">Error</span>
+    <span class="error">{{apiNumber.error()?.cause}}</span>
+  } @else {
   <span class="label">Value</span>
   <span class="value">{{apiNumber.value()}}</span>
+  }
   <span class="label">Status</span>
   <span class="status" [attr.data-status]="apiNumber.status()"
     >{{apiNumber.status()}}</span

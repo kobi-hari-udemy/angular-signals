@@ -28,12 +28,16 @@ export class Api {
     // this function returns the value times 5 after a delay of 3 seconds
 
     console.log('[API] Getting a multiplier for seed', value);
-    return new Promise<number>((resolve) => {
+    return new Promise<number>((resolve, reject) => {
       let handle: number | null = null;
       handle = setTimeout(() => {        
         const res = value * 5;
-        console.log('[API] Multiplier received', res);
-        resolve(res);
+        if (value === 57) {
+          reject('I dont like the number 57');
+        } else {
+          console.log('[API] Multiplier received', res);
+          resolve(res);
+        }
         handle = null;
       }, 3000);
 
