@@ -2,7 +2,8 @@ import { inject, Injectable, linkedSignal, resource, ResourceStreamItem, signal 
 import { Book } from '../models/book';
 import { HttpClient, httpResource } from '@angular/common/http';
 import { rxResource } from '@angular/core/rxjs-interop';
-import { of } from 'rxjs';
+import { map, of } from 'rxjs';
+import { webSocketObservable } from '../tools/web-socket-observable';
 
 @Injectable({
   providedIn: 'root'
@@ -50,29 +51,38 @@ export class StateService {
     defaultValue: null
   });
 
-  #selectedStock = resource({
+  // #selectedStock = resource({
+  //   params: () => ({id: this.#selectedBookId()}), 
+  //   stream: async (options) => {
+  //     const res = signal<ResourceStreamItem<number>>({value: 0 });
+
+  //     if (options.params.id) {
+  //       const ws = new WebSocket(`${this.wsBase}/stock/${options.params.id}`);
+  //       ws.onmessage = (event) => {
+  //         const data = JSON.parse(event.data);
+  //         if (data?.stock !== undefined) {
+  //           res.set({value: data.stock})
+  //         }
+  //       }
+
+  //       options.abortSignal.addEventListener('abort', () => {
+  //         ws.close();
+  //       })
+  //     }
+
+  //     return res;
+  //   }
+  // })
+
+  #selectedStock = rxResource({
     params: () => ({id: this.#selectedBookId()}), 
-    stream: async (options) => {
-      const res = signal<ResourceStreamItem<number>>({value: 0 });
-
-      if (options.params.id) {
-        const ws = new WebSocket(`${this.wsBase}/stock/${options.params.id}`);
-        ws.onmessage = (event) => {
-          const data = JSON.parse(event.data);
-          if (data?.stock !== undefined) {
-            res.set({value: data.stock})
-          }
-        }
-
-        options.abortSignal.addEventListener('abort', () => {
-          ws.close();
-        })
-      }
-
-      return res;
+    stream: (options) => {
+      if(!options.params.id) return of(0);
+      return webSocketObservable<{stock: number}>(`${this.wsBase}/stock/${options.params.id}`).pipe(
+        map(data => data.stock)
+      )
     }
   })
-
 
 
   get keyword() {
