@@ -1,5 +1,6 @@
-import { Component, model, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { StateService } from '../../services/state-service';
 
 @Component({
   selector: 'app-search-box',
@@ -8,5 +9,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './search-box.scss'
 })
 export class SearchBox {
-  readonly keyword = signal<string>('some keyword');
+  readonly state = inject(StateService);
 }
