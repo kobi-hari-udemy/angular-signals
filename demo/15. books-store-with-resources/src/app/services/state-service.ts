@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, resource, signal } from '@angular/core';
+import { Book } from '../models/book';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,18 @@ export class StateService {
 
   #keyword = signal<string>('the');
 
+  #searchResult = resource({
+    params: () => ({keyword: this.#keyword()}), 
+    loader: (options) => this.#searchKeywordPromise(options.params.keyword, options.abortSignal), 
+    defaultValue: []
+  });
+
   get keyword() {
     return this.#keyword.asReadonly();
+  }
+
+  get searchResult() {
+    return this.#searchResult.asReadonly();
   }
 
   setKeyword(value: string) {
@@ -19,6 +30,10 @@ export class StateService {
   }
 
 
+  #searchKeywordPromise(value: string, abortSignal?: AbortSignal): Promise<Book[]> {
+    return fetch(`${this.apiBase}/search?q=${value}`, {signal: abortSignal})
+      .then(resp => resp.json())
+  }
 
   constructor() { }
 }
