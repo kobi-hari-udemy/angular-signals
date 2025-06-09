@@ -53,6 +53,12 @@
     }
 
     .book-stock {
+      --empty-color: #9c1f1f;
+      --filled-color: #137e27;
+      --in-stock: var(--stock, 0);
+      --stock-ratio: calc(var(--in-stock) * 5%);
+      --stock-color: color-mix(in oklab, var(--empty-color), var(--filled-color) var(--stock-ratio));
+
       position: absolute;
       font-size: 1.08rem;
       color: #7b809a;
@@ -60,11 +66,12 @@
       margin-top: 0.5rem;
       top: -20px;
       right: 20px;
-      border: 1px solid #c5cae9;
+      border: 1px solid black;
       border-radius: 12px;
       padding: 0.3rem 0.8rem;
-      background-color: #416990;
-      color: #b6c9dd;
+      background-color: var(--stock-color);
+
+      color: white;
 
       .stock-label {
         font-weight: 600;
