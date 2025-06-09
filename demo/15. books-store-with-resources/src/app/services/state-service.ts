@@ -1,5 +1,6 @@
 import { Injectable, resource, signal } from '@angular/core';
 import { Book } from '../models/book';
+import { httpResource } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +11,19 @@ export class StateService {
 
   #keyword = signal<string>('the');
 
-  #searchResult = resource({
-    params: () => ({keyword: this.#keyword()}), 
-    loader: (options) => this.#searchKeywordPromise(options.params.keyword, options.abortSignal), 
-    defaultValue: []
-  });
+  // #searchResult = resource({
+  //   params: () => ({keyword: this.#keyword()}), 
+  //   loader: (options) => this.#searchKeywordPromise(options.params.keyword, options.abortSignal), 
+  //   defaultValue: []
+  // });
+
+  #searchResult = httpResource<Book[]>(() => ({
+    url: `${this.apiBase}/search`, 
+    params: { q: this.#keyword()},     
+    
+  }), {
+    defaultValue: [], 
+  })
 
   get keyword() {
     return this.#keyword.asReadonly();
