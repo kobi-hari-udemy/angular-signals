@@ -2,11 +2,11 @@
   <h3>Dinner Review Form</h3>
   <div class="field">
     <label>Username:</label>
-    <input type="text" />
+    <input type="text" [field]="reviewForm.username" />
   </div>
   <div class="field">
     <label>Role:</label>
-    <select>
+    <select [field]="reviewForm.role">
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
@@ -14,15 +14,15 @@
   </div>
   <div class="field">
     <label>Email:</label>
-    <input type="email"/>
+    <input type="email" [field]="reviewForm.email"/>
   </div>
   <div class="field">
     <label>Description:</label>
-    <textarea></textarea>
+    <textarea [field]="reviewForm.description"></textarea>
   </div>
   <div class="field">
     <label>Rating:</label>
-    <input type="number"/>
+    <input type="number" [field]="reviewForm.rating"/>
   </div>
 
   <button>Submit</button>

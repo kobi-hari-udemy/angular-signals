@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
-import { form } from '@angular/forms/signals';
+import { Field, form } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule, Field],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
