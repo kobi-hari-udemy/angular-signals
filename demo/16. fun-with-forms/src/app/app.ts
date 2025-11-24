@@ -23,6 +23,5 @@ export class App {
     required(path.email);
     email(path.email);
     minLength(path.description, 5);
-
   });
 }
