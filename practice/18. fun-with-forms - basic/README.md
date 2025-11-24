@@ -1,4 +1,3 @@
-## Target 1 - learn how to work with forms in general
 ### Getting started with a simple form
 - creating model
 - creating writeable signal
