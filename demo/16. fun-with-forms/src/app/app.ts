@@ -31,13 +31,16 @@ export class App {
     });
     validate(path.description, (ctx) => {
       const value = ctx.value();
+      const threshold = ctx.valueOf(path.role) === 'author'
+        ? 10
+        : 5;
 
       // check that there are at least 10 words
       const wordCount = value.trim().split(/\s+/).length;
-      if (wordCount < 10) {
+      if (wordCount < threshold) {
         return customError({
           kind: 'min-words', 
-          message: `Description needs to be at least 10 words long (currently there are ${wordCount} words)`
+          message: `Description needs to be at least ${threshold} words long (currently there are ${wordCount} words)`
         })
       }
 
