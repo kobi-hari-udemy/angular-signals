@@ -50,3 +50,8 @@ In this repository you can find all material for the course
 * Code Along - The resource books store
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/17.%20books-store-with-resources)
   * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/17.%20books-store-with-resources?title=Resources%20Book%20Store&file=README.md)
+
+### Section 8 - Introduction to Signal Forms
+* Basic Forms
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic?title=Basic%20Signal%20Forms&file=README.md)

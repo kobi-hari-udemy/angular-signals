@@ -1,0 +1,34 @@
+<div class="form">
+  <h3>Dinner Review Form</h3>
+  <div class="field">
+    <label>Username:</label>
+    <input type="text" />
+  </div>
+  <div class="field">
+    <label>Role:</label>
+    <select>
+      <option value="user">User</option>
+      <option value="author">Author</option>
+      <option value="chef">Chef</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Email:</label>
+    <input type="email"/>
+  </div>
+  <div class="field">
+    <label>Description:</label>
+    <textarea></textarea>
+  </div>
+  <div class="field">
+    <label>Rating:</label>
+    <input type="number"/>
+  </div>
+
+  <button>Submit</button>
+</div>
+
+<div class="model">
+  <h3>Model Value</h3>
+  <pre><code>{{ model() | json }}</code></pre>
+</div>
