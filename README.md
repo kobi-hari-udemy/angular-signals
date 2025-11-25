@@ -55,3 +55,6 @@ In this repository you can find all material for the course
 * Basic Forms
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic)
   * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic?title=Basic%20Signal%20Forms&file=README.md)
+* Advanced Forms
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced?title=Advanced%20Signal%20Forms&file=README.md)
