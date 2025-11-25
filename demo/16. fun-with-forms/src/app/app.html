@@ -57,7 +57,20 @@
         @for(err of reviewForm.rating().errors(); track err.kind) {
       <div class="error">{{err.message}}</div>
     }
-
+  </div>
+  <div class="field">
+    <label>Recommendation:</label>
+    <select
+      [field]="reviewForm.recommendation"
+      [class.invalid]="reviewForm.recommendation().invalid() && reviewForm.recommendation().touched()"
+    >
+      <option value="no-opinion">No Opinion</option>
+      <option value="recommend">Would Recommend</option>
+      <option value="not-recommend">Would Not Recommend</option>
+    </select>
+        @for(err of reviewForm.recommendation().errors(); track err.kind) {
+      <div class="error">{{err.message}}</div>
+    }
   </div>
 
   <button [disabled]="!reviewForm().valid()">Submit</button>

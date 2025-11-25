@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
-import { customError, email, Field, form, minLength, required, validate } from '@angular/forms/signals';
+import { customError, email, Field, form, minLength, required, validate, validateTree } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ export class App {
     email: '',
     description: '',
     rating: 1,
+    recommendation: 'no-opinion',
   });
 
   readonly reviewForm = form(this.model, path => {
@@ -45,6 +46,28 @@ export class App {
       }
 
       return undefined;
+    }), 
+    validateTree(path, ctx => {
+      const rating = ctx.valueOf(path.rating);
+      const recommendation = ctx.valueOf(path.recommendation);
+
+      if ((rating >= 4) && (recommendation === 'not-recommend')) {
+        return [
+          customError({
+            kind: 'rating-conflict', 
+            message: 'You cannot give rating of 4 and above and not recommend the dinner', 
+            field: ctx.field.rating
+          }), 
+          customError({
+            kind: 'rating-conflict', 
+            message: 'You cannot give rating of 4 and above and not recommend the dinner', 
+            field: ctx.field.recommendation
+          }), 
+        ];
+      }
+
+      return undefined;
+
     })
   });
 }
