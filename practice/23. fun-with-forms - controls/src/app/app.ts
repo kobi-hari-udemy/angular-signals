@@ -17,12 +17,10 @@ import {
   validateTree,
 } from '@angular/forms/signals';
 import { ReviewsService } from './services/reviews-service';
-import { FieldStyleDirective } from './shared/field-styling.directive';
-import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Field, FieldStyleDirective, FieldWrapper],
+  imports: [CommonModule, Field],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -31,7 +29,7 @@ export class App {
   readonly submittedSuccessfully = signal(false);
 
   readonly model = signal<DinnerReview>({
-    username: '',
+    username: 'Kobi Hari',
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
