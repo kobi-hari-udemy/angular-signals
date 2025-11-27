@@ -3,58 +3,94 @@
 }
 <div class="form">
   <h3>Dinner Review Form</h3>
-  <app-field label="Username">
+  <div class="field">
+    <label>Username:</label>
     <input
       type="text"
-      [field]="reviewForm.username"      
+      [field]="reviewForm.username"
+      [class.invalid]="reviewForm.username().invalid() && reviewForm.username().touched()"
     />
-  </app-field>
-  <app-field label="Role">
+    @for(err of reviewForm.username().errors(); track err.kind) {
+    <div class="error">{{ err.message }}</div>
+    }
+  </div>
+  <div class="field">
+    <label>Role:</label>
     <select
       [field]="reviewForm.role"
+      [class.invalid]="reviewForm.role().invalid() && reviewForm.role().touched()"
     >
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
-    </select>  
-  </app-field>
-  <app-field label="Email"> 
+    </select>
+    @for(err of reviewForm.role().errors(); track err.kind) {
+    <div class="error">{{ err.message }}</div>
+    }
+  </div>
+  <div class="field">
+    <label>Email:</label>
     <input
       type="email"
       [field]="reviewForm.email"
+      [class.invalid]="reviewForm.email().invalid() && reviewForm.email().touched()"
     />
-  </app-field>
-  <app-field label="Description">
+    @for(err of reviewForm.email().errors(); track err.kind) {
+    <div class="error">{{ err.message }}</div>
+    }
+  </div>
+  <div class="field">
+    <label>Description:</label>
     <textarea
       [field]="reviewForm.description"
+      [class.invalid]="reviewForm.description().invalid() && reviewForm.description().touched()"
     ></textarea>
-  </app-field>
+    @for(err of reviewForm.description().errors(); track err.kind) {
+    <div class="error">{{ err.message }}</div>
+    }
+  </div>
 
   @for(rev of reviewForm.reviews; track $index) {
   <div class="sub-form">
     <button (click)="removeItem($index)">Remove</button>
-    <app-field label="Aspect">
+    <div class="field">
+      <label>Aspect:</label>
       <input
         type="text"
         [field]="rev.aspect"
+        [class.invalid]="rev.aspect().invalid() && rev.aspect().touched()"
       />
-    </app-field>
-    <app-field label="Rating">
+      @for(err of rev.aspect().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Rating:</label>
       <input
         type="number"
         [field]="rev.rating"
+        [class.invalid]="rev.rating().invalid() && rev.rating().touched()"
       />
-    </app-field>
-    <app-field label="Recommendation">
+      @for(err of rev.rating().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Recommendation:</label>
       <select
         [field]="rev.recommendation"
+        [class.invalid]="rev.recommendation().invalid() && rev.recommendation().touched()"
       >
         <option value="no-opinion">No Opinion</option>
         <option value="recommend">Would Recommend</option>
         <option value="not-recommend">Would Not Recommend</option>
       </select>
-    </app-field>
+      @for(err of rev.recommendation().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
   </div>
+
   }
 
   <button (click)="addReviewItem()">Add Review</button>
