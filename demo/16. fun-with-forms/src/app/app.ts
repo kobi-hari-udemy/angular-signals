@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
-import { customError, email, Field, form, minLength, required, validate, validateTree } from '@angular/forms/signals';
+import { customError, disabled, email, Field, form, minLength, readonly, required, validate, validateTree } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
@@ -23,10 +23,12 @@ export class App {
     required(path.username, {
       message: 'Username is required',
     });
-    required(path.email, {
-      message: 'Email is required',
-      when: (ctx) => ctx.valueOf(path.role) !== 'author'
-    });
+    // required(path.email, {
+    //   message: 'Email is required',
+    //   when: (ctx) => ctx.valueOf(path.role) !== 'author'
+    // });
+    // disabled(path.email, ctx => ctx.valueOf(path.role) === 'author');
+    readonly(path.email, ctx => ctx.valueOf(path.role) === 'author');
     email(path.email, {
       message: 'Email is not in the correct format',
     });
