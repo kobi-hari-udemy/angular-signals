@@ -1,0 +1,70 @@
+### Tree Validation
+- How to validate more then one field at a time
+  
+### Disabling Controls
+- Understanding the `disabled` function
+- What disabled means for validation
+- The `readonly` and what it means too
+
+### Hiding controls
+- The `hidden` function and what it means
+- Hiding the controls also from the UI
+
+### Nested Forms
+- Understanding the "hierarchical" nature of the fields tree
+- Example of how to work with nested form
+
+### Form Arrays
+- Editing an array field
+- Adding and removing items from the array
+- Validating the array using `applyEach`
+
+### Submitting a form
+- Understanding the "submit" function
+- `submit` "touches" the entire form
+- Understanding the "submitting" state
+- Presenting "server" errors in the form after submitting
+
+## Target 2 - Reusability in Signal Forms
+### Automatic field state styling
+- Creating a reusable directive
+- Accessing the FieldTree and FieldState of the field
+- Applying conditional styling based on the value
+
+### Creating a field wrapper
+- Creating a component to present field metadata
+- Projecting the content input
+
+### Adding metadata to field wrapper
+- Presenting the errors
+- Presenting the label
+- Presenting required * on required properties
+
+### Sub Form - A Component that receives [field] input
+- Create sub form for nested object
+- Receive the "field" input
+- Use it as form - and continue normally
+
+### Reusable Scheme
+- Using the `schema` function to create reusable schema
+- Applying the schema in the form main schema
+
+### Creating custom Field Controls
+- Starting with ease - the `value` model
+
+### Supporting disabled and readonly states
+- Supporting disabled state
+- Supporting readonly state
+
+### Understanding control metadata
+- How the "range" input sets its boundaries?
+- Receving the max input into our custom control
+- Applying it in the UI
+
+
+
+
+
+
+
+
