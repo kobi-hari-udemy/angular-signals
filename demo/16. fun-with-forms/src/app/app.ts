@@ -2,6 +2,7 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
 import {
+  applyEach,
   customError,
   email,
   Field,
@@ -25,14 +26,18 @@ export class App {
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
-    food: {
-      rating: 1,
-      recommendation: 'no-opinion',
-    },
-    service: {
-      rating: 1, 
-      recommendation: 'no-opinion'
-    }
+    reviews: [
+      {
+        aspect: 'Food',
+        rating: 4,
+        recommendation: 'recommend',
+      },
+      {
+        aspect: 'Service',
+        rating: 5,
+        recommendation: 'recommend',
+      },
+    ],
   });
 
   readonly reviewForm = form(this.model, (path) => {
@@ -45,14 +50,6 @@ export class App {
     });
     email(path.email, {
       message: 'Email is not in the correct format',
-    });
-
-    max(path.food.rating, 5, {
-      message: 'Rating must be under 5'
-    });
-
-    min(path.food.rating, 1, {
-      message: 'Rating must be above 1'
     });
 
     validate(path.description, (ctx) => {
