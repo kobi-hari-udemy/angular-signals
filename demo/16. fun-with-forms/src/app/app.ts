@@ -12,6 +12,7 @@ import {
   minLength,
   required,
   validate,
+  validateTree,
 } from '@angular/forms/signals';
 
 @Component({
@@ -41,27 +42,25 @@ export class App {
   });
 
   addReviewItem() {
-    this.model.update(state => ({
-      ...state, 
+    this.model.update((state) => ({
+      ...state,
       reviews: [
-        ...state.reviews, 
+        ...state.reviews,
         {
-          aspect: '', 
-          rating: 3, 
-          recommendation: 'no-opinion'
-        }
-      ]
-    }))
+          aspect: '',
+          rating: 3,
+          recommendation: 'no-opinion',
+        },
+      ],
+    }));
   }
 
   removeItem(index: number) {
-    this.model.update(state => ({
-      ...state, 
-      reviews: state.reviews.filter((r, i) => i !== index)
-    }))
+    this.model.update((state) => ({
+      ...state,
+      reviews: state.reviews.filter((r, i) => i !== index),
+    }));
   }
-
-
 
   readonly reviewForm = form(this.model, (path) => {
     required(path.username, {
@@ -89,6 +88,41 @@ export class App {
       }
 
       return undefined;
+    });
+
+    applyEach(path.reviews, (p) => {
+      min(p.rating, 1, {
+        message: 'Min 1',
+      });
+
+      max(p.rating, 5, {
+        message: 'Max 5',
+      });
+
+      required(p.aspect, {
+        message: 'Aspect is mandatory',
+      });
+
+      validateTree(p, (ctx) => {
+        const rating = ctx.valueOf(p.rating);
+        const recommendation = ctx.valueOf(p.recommendation);
+        if (rating >= 4 && recommendation === 'not-recommend') {
+          return [
+            customError({
+              kind: 'rating-conflict',
+              message: 'Rating Conflict',
+              field: ctx.field.rating,
+            }),
+            customError({
+              kind: 'rating-conflict',
+              message: 'Rating Conflict',
+              field: ctx.field.recommendation,
+            }),
+          ];
+        }
+
+        return undefined;
+      });
     });
   });
 }
