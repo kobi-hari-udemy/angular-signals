@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
-import { customError, disabled, email, Field, form, minLength, readonly, required, validate, validateTree } from '@angular/forms/signals';
+import { customError, disabled, email, Field, form, hidden, minLength, readonly, required, validate, validateTree } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +11,10 @@ import { customError, disabled, email, Field, form, minLength, readonly, require
 })
 export class App {
   readonly model = signal<DinnerReview>({
-    username: '',
+    username: 'Kobi Hari',
     role: 'user',
     email: '',
-    description: '',
+    description: 'The dinner was great and we loved it so much',
     rating: 1,
     recommendation: 'no-opinion',
   });
@@ -28,7 +28,8 @@ export class App {
     //   when: (ctx) => ctx.valueOf(path.role) !== 'author'
     // });
     // disabled(path.email, ctx => ctx.valueOf(path.role) === 'author');
-    readonly(path.email, ctx => ctx.valueOf(path.role) === 'author');
+    // readonly(path.email, ctx => ctx.valueOf(path.role) === 'author');
+    hidden(path.email, ctx => ctx.valueOf(path.role) === 'author');
     email(path.email, {
       message: 'Email is not in the correct format',
     });
