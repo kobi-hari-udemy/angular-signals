@@ -7,8 +7,7 @@
     <label>Username:</label>
     <input
       type="text"
-      [field]="reviewForm.username"
-      [class.invalid]="reviewForm.username().invalid() && reviewForm.username().touched()"
+      [field]="reviewForm.username"      
     />
     @for(err of reviewForm.username().errors(); track err.kind) {
     <div class="error">{{ err.message }}</div>
@@ -18,7 +17,6 @@
     <label>Role:</label>
     <select
       [field]="reviewForm.role"
-      [class.invalid]="reviewForm.role().invalid() && reviewForm.role().touched()"
     >
       <option value="user">User</option>
       <option value="author">Author</option>
@@ -33,7 +31,6 @@
     <input
       type="email"
       [field]="reviewForm.email"
-      [class.invalid]="reviewForm.email().invalid() && reviewForm.email().touched()"
     />
     @for(err of reviewForm.email().errors(); track err.kind) {
     <div class="error">{{ err.message }}</div>
@@ -43,7 +40,6 @@
     <label>Description:</label>
     <textarea
       [field]="reviewForm.description"
-      [class.invalid]="reviewForm.description().invalid() && reviewForm.description().touched()"
     ></textarea>
     @for(err of reviewForm.description().errors(); track err.kind) {
     <div class="error">{{ err.message }}</div>
@@ -58,7 +54,6 @@
       <input
         type="text"
         [field]="rev.aspect"
-        [class.invalid]="rev.aspect().invalid() && rev.aspect().touched()"
       />
       @for(err of rev.aspect().errors(); track err.kind) {
       <div class="error">{{ err.message }}</div>
@@ -69,7 +64,6 @@
       <input
         type="number"
         [field]="rev.rating"
-        [class.invalid]="rev.rating().invalid() && rev.rating().touched()"
       />
       @for(err of rev.rating().errors(); track err.kind) {
       <div class="error">{{ err.message }}</div>
@@ -79,7 +73,6 @@
       <label>Recommendation:</label>
       <select
         [field]="rev.recommendation"
-        [class.invalid]="rev.recommendation().invalid() && rev.recommendation().touched()"
       >
         <option value="no-opinion">No Opinion</option>
         <option value="recommend">Would Recommend</option>
