@@ -19,9 +19,4 @@ export class FieldStyleDirective<T> {
     readonly touched = computed(() => this.fieldState().touched());
     readonly dirty = computed(() => this.fieldState().dirty());
 
-
-    constructor() {
-        console.log('Field Styling Directive constructed');
-    }
-
 }
