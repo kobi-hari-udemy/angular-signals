@@ -25,7 +25,6 @@
     <div class="error">{{ err.message }}</div>
     }
   </div>
-  @if(!reviewForm.email().hidden()) {
   <div class="field">
     <label>Email:</label>
     <input
@@ -34,46 +33,80 @@
       [class.invalid]="reviewForm.email().invalid() && reviewForm.email().touched()"
     />
     @for(err of reviewForm.email().errors(); track err.kind) {
-      <div class="error">{{err.message}}</div>
+    <div class="error">{{ err.message }}</div>
     }
   </div>
-
-  }
   <div class="field">
     <label>Description:</label>
     <textarea
       [field]="reviewForm.description"
       [class.invalid]="reviewForm.description().invalid() && reviewForm.description().touched()"
     ></textarea>
-        @for(err of reviewForm.description().errors(); track err.kind) {
-      <div class="error">{{err.message}}</div>
+    @for(err of reviewForm.description().errors(); track err.kind) {
+    <div class="error">{{ err.message }}</div>
     }
+  </div>
 
+  <div class="sub-form">
+    <h4>Food</h4>
+    <div class="field">
+      <label>Rating:</label>
+      <input
+        type="number"
+        [field]="reviewForm.food.rating"
+        [class.invalid]="reviewForm.food.rating().invalid() && reviewForm.food.rating().touched()"
+      />
+      @for(err of reviewForm.food.rating().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Recommendation:</label>
+      <select
+        [field]="reviewForm.food.recommendation"
+        [class.invalid]="
+          reviewForm.food.recommendation().invalid() && reviewForm.food.recommendation().touched()
+        "
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+      @for(err of reviewForm.food.recommendation().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
   </div>
-  <div class="field">
-    <label>Rating:</label>
-    <input
-      type="number"
-      [field]="reviewForm.rating"
-      [class.invalid]="reviewForm.rating().invalid() && reviewForm.rating().touched()"
-    />
-        @for(err of reviewForm.rating().errors(); track err.kind) {
-      <div class="error">{{err.message}}</div>
-    }
-  </div>
-  <div class="field">
-    <label>Recommendation:</label>
-    <select
-      [field]="reviewForm.recommendation"
-      [class.invalid]="reviewForm.recommendation().invalid() && reviewForm.recommendation().touched()"
-    >
-      <option value="no-opinion">No Opinion</option>
-      <option value="recommend">Would Recommend</option>
-      <option value="not-recommend">Would Not Recommend</option>
-    </select>
-        @for(err of reviewForm.recommendation().errors(); track err.kind) {
-      <div class="error">{{err.message}}</div>
-    }
+
+  <div class="sub-form">
+    <h4>Service</h4>
+    <div class="field">
+      <label>Rating:</label>
+      <input
+        type="number"
+        [field]="reviewForm.service.rating"
+        [class.invalid]="reviewForm.service.rating().invalid() && reviewForm.service.rating().touched()"
+      />
+      @for(err of reviewForm.service.rating().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Recommendation:</label>
+      <select
+        [field]="reviewForm.service.recommendation"
+        [class.invalid]="
+          reviewForm.service.recommendation().invalid() && reviewForm.service.recommendation().touched()
+        "
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+      @for(err of reviewForm.service.recommendation().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+      }
+    </div>
   </div>
 
   <button [disabled]="!reviewForm().valid()">Submit</button>
