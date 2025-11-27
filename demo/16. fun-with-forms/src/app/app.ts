@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
 import {
+  apply,
   applyEach,
   customError,
   disabled,
@@ -20,6 +21,7 @@ import { ReviewsService } from './services/reviews-service';
 import { FieldStyleDirective } from './shared/field-styling.directive';
 import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
 import { ReviewItemForm } from './shared/review-item-form/review-item-form';
+import { reviewItemSchema } from './schemas/review-item-schema';
 
 @Component({
   selector: 'app-root',
@@ -75,40 +77,9 @@ export class App {
       return undefined;
     });
 
-    // applyEach(path.reviews, (p) => {
-    //   min(p.rating, 1, {
-    //     message: 'Min 1',
-    //   });
+    apply(path.food, reviewItemSchema);
+    apply(path.service, reviewItemSchema);
 
-    //   max(p.rating, 5, {
-    //     message: 'Max 5',
-    //   });
-
-    //   required(p.aspect, {
-    //     message: 'Aspect is mandatory',
-    //   });
-
-    //   validateTree(p, (ctx) => {
-    //     const rating = ctx.valueOf(p.rating);
-    //     const recommendation = ctx.valueOf(p.recommendation);
-    //     if (rating >= 4 && recommendation === 'not-recommend') {
-    //       return [
-    //         customError({
-    //           kind: 'rating-conflict',
-    //           message: 'Rating Conflict',
-    //           field: ctx.field.rating,
-    //         }),
-    //         customError({
-    //           kind: 'rating-conflict',
-    //           message: 'Rating Conflict',
-    //           field: ctx.field.recommendation,
-    //         }),
-    //       ];
-    //     }
-
-    //     return undefined;
-    //   });
-    // });
   });
 
   onSubmit() {
