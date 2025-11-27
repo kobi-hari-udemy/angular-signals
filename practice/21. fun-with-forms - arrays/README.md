@@ -4,7 +4,7 @@
 - Adding and removing items from the array
 - Validating the array using `applyEach`
 
-### Submitting a form
+### Submitting a form 
 - Understanding the "submit" function
 - `submit` "touches" the entire form
 - Understanding the "submitting" state
