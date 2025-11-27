@@ -1,7 +1,4 @@
-### Nested Forms
-- Understanding the "hierarchical" nature of the fields tree
-- Example of how to work with nested form
-
+# Practice 21
 ### Form Arrays
 - Editing an array field
 - Adding and removing items from the array
@@ -12,6 +9,8 @@
 - `submit` "touches" the entire form
 - Understanding the "submitting" state
 - Presenting "server" errors in the form after submitting
+
+
 
 ## Target 2 - Reusability in Signal Forms
 ### Automatic field state styling
