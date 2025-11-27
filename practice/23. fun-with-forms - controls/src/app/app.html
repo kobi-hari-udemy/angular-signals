@@ -30,24 +30,17 @@
     ></textarea>
   </app-field>
 
-  @for(rev of reviewForm.reviews; track $index) {
   <div class="sub-form">
-    <button (click)="removeItem($index)">Remove</button>
-    <app-field label="Aspect">
-      <input
-        type="text"
-        [field]="rev.aspect"
-      />
-    </app-field>
+    <h4>Food</h4>
     <app-field label="Rating">
       <input
         type="number"
-        [field]="rev.rating"
+        [field]="reviewForm.food.rating"
       />
     </app-field>
     <app-field label="Recommendation">
       <select
-        [field]="rev.recommendation"
+        [field]="reviewForm.food.recommendation"
       >
         <option value="no-opinion">No Opinion</option>
         <option value="recommend">Would Recommend</option>
@@ -55,9 +48,26 @@
       </select>
     </app-field>
   </div>
-  }
 
-  <button (click)="addReviewItem()">Add Review</button>
+    <div class="sub-form">
+    <h4>Service</h4>
+    <app-field label="Rating">
+      <input
+        type="number"
+        [field]="reviewForm.service.rating"
+      />
+    </app-field>
+    <app-field label="Recommendation">
+      <select
+        [field]="reviewForm.service.recommendation"
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+    </app-field>
+  </div>
+
 
   @if(reviewForm().submitting()) {
   <div>Please wait...</div>
