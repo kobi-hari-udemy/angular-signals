@@ -94,7 +94,8 @@
   <button (click)="addReviewItem()">Add Review</button>
 
 
-  <button [disabled]="!reviewForm().valid()">Submit</button>
+  <button 
+   (click)="onSubmit()">Submit</button>
 </div>
 
 <div class="model">

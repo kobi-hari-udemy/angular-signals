@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
 import {
@@ -11,9 +11,11 @@ import {
   min,
   minLength,
   required,
+  submit,
   validate,
   validateTree,
 } from '@angular/forms/signals';
+import { ReviewsService } from './services/reviews-service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,8 @@ import {
   styleUrl: './app.scss',
 })
 export class App {
+  readonly reviewsService = inject(ReviewsService);
+
   readonly model = signal<DinnerReview>({
     username: 'Kobi Hari',
     role: 'user',
@@ -125,4 +129,15 @@ export class App {
       });
     });
   });
+
+  onSubmit() {
+    submit(this.reviewForm, async frm => {
+      console.log('starting to submit the form');
+      const res = await this.reviewsService.submitReview(frm);
+      return res;
+    })
+
+
+  }
+
 }
