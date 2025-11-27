@@ -69,3 +69,6 @@ In this repository you can find all material for the course
 * Reusable Directive and Components
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/22.%20fun-with-forms%20-%20reusability)
   * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/22.%20fun-with-forms%20-%20reusability?title=Signal%20Forms%20Reusability&file=README.md)
+* Reusable Controls
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/23.%20fun-with-forms%20-%20controls)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/23.%20fun-with-forms%20-%20controls?title=Signal%20Forms%20Reusability&file=README.md)
