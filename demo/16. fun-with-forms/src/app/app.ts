@@ -6,6 +6,8 @@ import {
   email,
   Field,
   form,
+  max,
+  min,
   minLength,
   required,
   validate,
@@ -44,6 +46,15 @@ export class App {
     email(path.email, {
       message: 'Email is not in the correct format',
     });
+
+    max(path.food.rating, 5, {
+      message: 'Rating must be under 5'
+    });
+
+    min(path.food.rating, 1, {
+      message: 'Rating must be above 1'
+    });
+
     validate(path.description, (ctx) => {
       const value = ctx.value();
       const threshold = ctx.valueOf(path.role) === 'author' ? 10 : 5;
