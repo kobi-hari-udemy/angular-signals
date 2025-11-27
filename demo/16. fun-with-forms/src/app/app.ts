@@ -4,6 +4,7 @@ import { DinnerReview } from './models/dinner-review.model';
 import {
   applyEach,
   customError,
+  disabled,
   email,
   Field,
   form,
@@ -25,6 +26,7 @@ import { ReviewsService } from './services/reviews-service';
 })
 export class App {
   readonly reviewsService = inject(ReviewsService);
+  readonly submittedSuccessfully = signal(false);
 
   readonly model = signal<DinnerReview>({
     username: 'Kobi Hari',
@@ -77,7 +79,7 @@ export class App {
     email(path.email, {
       message: 'Email is not in the correct format',
     });
-
+    disabled(path, ctx => ctx.state.submitting());
     validate(path.description, (ctx) => {
       const value = ctx.value();
       const threshold = ctx.valueOf(path.role) === 'author' ? 10 : 5;
@@ -134,10 +136,11 @@ export class App {
     submit(this.reviewForm, async frm => {
       console.log('starting to submit the form');
       const res = await this.reviewsService.submitReview(frm);
+      if (!res) {
+        this.submittedSuccessfully.set(true);
+      }
       return res;
     })
-
-
   }
 
 }
