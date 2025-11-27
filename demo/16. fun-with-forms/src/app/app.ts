@@ -19,10 +19,11 @@ import {
 import { ReviewsService } from './services/reviews-service';
 import { FieldStyleDirective } from './shared/field-styling.directive';
 import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
+import { ReviewItemForm } from './shared/review-item-form/review-item-form';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Field, FieldStyleDirective, FieldWrapper],
+  imports: [CommonModule, Field, FieldStyleDirective, FieldWrapper, ReviewItemForm],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -31,44 +32,20 @@ export class App {
   readonly submittedSuccessfully = signal(false);
 
   readonly model = signal<DinnerReview>({
-    username: '',
+    username: 'Kobi Hari',
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
-    reviews: [
-      {
-        aspect: 'Food',
+    food: {
         rating: 4,
         recommendation: 'recommend',
       },
+    service: 
       {
-        aspect: 'Service',
         rating: 5,
         recommendation: 'recommend',
       },
-    ],
   });
-
-  addReviewItem() {
-    this.model.update((state) => ({
-      ...state,
-      reviews: [
-        ...state.reviews,
-        {
-          aspect: '',
-          rating: 3,
-          recommendation: 'no-opinion',
-        },
-      ],
-    }));
-  }
-
-  removeItem(index: number) {
-    this.model.update((state) => ({
-      ...state,
-      reviews: state.reviews.filter((r, i) => i !== index),
-    }));
-  }
 
   readonly reviewForm = form(this.model, (path) => {
     required(path.username, {
@@ -98,40 +75,40 @@ export class App {
       return undefined;
     });
 
-    applyEach(path.reviews, (p) => {
-      min(p.rating, 1, {
-        message: 'Min 1',
-      });
+    // applyEach(path.reviews, (p) => {
+    //   min(p.rating, 1, {
+    //     message: 'Min 1',
+    //   });
 
-      max(p.rating, 5, {
-        message: 'Max 5',
-      });
+    //   max(p.rating, 5, {
+    //     message: 'Max 5',
+    //   });
 
-      required(p.aspect, {
-        message: 'Aspect is mandatory',
-      });
+    //   required(p.aspect, {
+    //     message: 'Aspect is mandatory',
+    //   });
 
-      validateTree(p, (ctx) => {
-        const rating = ctx.valueOf(p.rating);
-        const recommendation = ctx.valueOf(p.recommendation);
-        if (rating >= 4 && recommendation === 'not-recommend') {
-          return [
-            customError({
-              kind: 'rating-conflict',
-              message: 'Rating Conflict',
-              field: ctx.field.rating,
-            }),
-            customError({
-              kind: 'rating-conflict',
-              message: 'Rating Conflict',
-              field: ctx.field.recommendation,
-            }),
-          ];
-        }
+    //   validateTree(p, (ctx) => {
+    //     const rating = ctx.valueOf(p.rating);
+    //     const recommendation = ctx.valueOf(p.recommendation);
+    //     if (rating >= 4 && recommendation === 'not-recommend') {
+    //       return [
+    //         customError({
+    //           kind: 'rating-conflict',
+    //           message: 'Rating Conflict',
+    //           field: ctx.field.rating,
+    //         }),
+    //         customError({
+    //           kind: 'rating-conflict',
+    //           message: 'Rating Conflict',
+    //           field: ctx.field.recommendation,
+    //         }),
+    //       ];
+    //     }
 
-        return undefined;
-      });
-    });
+    //     return undefined;
+    //   });
+    // });
   });
 
   onSubmit() {

@@ -31,7 +31,7 @@ export class App {
   readonly submittedSuccessfully = signal(false);
 
   readonly model = signal<DinnerReview>({
-    username: '',
+    username: 'Kobi Hari',
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',

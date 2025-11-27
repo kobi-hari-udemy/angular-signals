@@ -1,0 +1,11 @@
+<h4>{{header()}}</h4>
+<app-field label="Rating">
+  <input type="number" [field]="field().rating" />
+</app-field>
+<app-field label="Recommendation">
+  <select [field]="field().recommendation">
+    <option value="no-opinion">No Opinion</option>
+    <option value="recommend">Would Recommend</option>
+    <option value="not-recommend">Would Not Recommend</option>
+  </select>
+</app-field>

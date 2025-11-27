@@ -96,7 +96,7 @@
     }
   }
 
-  .sub-form {
+  .sub-form, app-review-item-form {
     border: 2px dashed var(--color-primary-light);
     padding: var(--spacing-md);
     border-radius: var(--radius-md);

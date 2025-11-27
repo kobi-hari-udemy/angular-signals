@@ -4,60 +4,25 @@
 <div class="form">
   <h3>Dinner Review Form</h3>
   <app-field label="Username">
-    <input
-      type="text"
-      [field]="reviewForm.username"      
-    />
+    <input type="text" [field]="reviewForm.username" />
   </app-field>
   <app-field label="Role">
-    <select
-      [field]="reviewForm.role"
-    >
+    <select [field]="reviewForm.role">
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
-    </select>  
+    </select>
   </app-field>
-  <app-field label="Email"> 
-    <input
-      type="email"
-      [field]="reviewForm.email"
-    />
+  <app-field label="Email">
+    <input type="email" [field]="reviewForm.email" />
   </app-field>
   <app-field label="Description">
-    <textarea
-      [field]="reviewForm.description"
-    ></textarea>
+    <textarea [field]="reviewForm.description"></textarea>
   </app-field>
 
-  @for(rev of reviewForm.reviews; track $index) {
-  <div class="sub-form">
-    <button (click)="removeItem($index)">Remove</button>
-    <app-field label="Aspect">
-      <input
-        type="text"
-        [field]="rev.aspect"
-      />
-    </app-field>
-    <app-field label="Rating">
-      <input
-        type="number"
-        [field]="rev.rating"
-      />
-    </app-field>
-    <app-field label="Recommendation">
-      <select
-        [field]="rev.recommendation"
-      >
-        <option value="no-opinion">No Opinion</option>
-        <option value="recommend">Would Recommend</option>
-        <option value="not-recommend">Would Not Recommend</option>
-      </select>
-    </app-field>
-  </div>
-  }
+  <app-review-item-form [field]="reviewForm.food" header="Food" />
 
-  <button (click)="addReviewItem()">Add Review</button>
+  <app-review-item-form [field]="reviewForm.service" header="Service" />
 
   @if(reviewForm().submitting()) {
   <div>Please wait...</div>
