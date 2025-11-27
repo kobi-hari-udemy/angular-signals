@@ -8,9 +8,6 @@
       type="text"
       [field]="reviewForm.username"      
     />
-    @for(err of reviewForm.username().errors(); track err.kind) {
-    <div class="error">{{ err.message }}</div>
-    }
   </app-field>
   <app-field label="Role">
     <select
@@ -19,27 +16,18 @@
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
-    </select>
-    @for(err of reviewForm.role().errors(); track err.kind) {
-    <div class="error">{{ err.message }}</div>
-    }
+    </select>  
   </app-field>
   <app-field label="Email"> 
     <input
       type="email"
       [field]="reviewForm.email"
     />
-    @for(err of reviewForm.email().errors(); track err.kind) {
-    <div class="error">{{ err.message }}</div>
-    }
   </app-field>
   <app-field label="Description">
     <textarea
       [field]="reviewForm.description"
     ></textarea>
-    @for(err of reviewForm.description().errors(); track err.kind) {
-    <div class="error">{{ err.message }}</div>
-    }
   </app-field>
 
   @for(rev of reviewForm.reviews; track $index) {
@@ -50,18 +38,12 @@
         type="text"
         [field]="rev.aspect"
       />
-      @for(err of rev.aspect().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-      }
     </app-field>
     <app-field label="Rating">
       <input
         type="number"
         [field]="rev.rating"
       />
-      @for(err of rev.rating().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-      }
     </app-field>
     <app-field label="Recommendation">
       <select
@@ -71,12 +53,8 @@
         <option value="recommend">Would Recommend</option>
         <option value="not-recommend">Would Not Recommend</option>
       </select>
-      @for(err of rev.recommendation().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-      }
     </app-field>
   </div>
-
   }
 
   <button (click)="addReviewItem()">Add Review</button>
