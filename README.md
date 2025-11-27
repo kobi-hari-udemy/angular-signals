@@ -58,3 +58,6 @@ In this repository you can find all material for the course
 * Advanced Forms
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced)
   * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced?title=Advanced%20Signal%20Forms&file=README.md)
+* Nested Forms
+  * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/20.%20fun-with-forms%20-%20nested)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/20.%20fun-with-forms%20-%20nested?title=Advanced%20Signal%20Forms&file=README.md)
