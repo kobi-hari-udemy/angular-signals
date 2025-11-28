@@ -22,6 +22,7 @@ import { FieldStyleDirective } from './shared/field-styling.directive';
 import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
 import { ReviewItemForm } from './shared/review-item-form/review-item-form';
 import { reviewItemSchema } from './schemas/review-item-schema';
+import { minWords } from './schemas/min-words-validator';
 
 @Component({
   selector: 'app-root',
@@ -39,14 +40,13 @@ export class App {
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
     food: {
-        rating: 4,
-        recommendation: 'recommend',
-      },
-    service: 
-      {
-        rating: 5,
-        recommendation: 'recommend',
-      },
+      rating: 4,
+      recommendation: 'recommend',
+    },
+    service: {
+      rating: 5,
+      recommendation: 'recommend',
+    },
   });
 
   readonly reviewForm = form(this.model, (path) => {
@@ -60,36 +60,21 @@ export class App {
     email(path.email, {
       message: 'Email is not in the correct format',
     });
-    disabled(path, ctx => ctx.state.submitting());
-    validate(path.description, (ctx) => {
-      const value = ctx.value();
-      const threshold = ctx.valueOf(path.role) === 'author' ? 10 : 5;
-
-      // check that there are at least 10 words
-      const wordCount = value.trim().split(/\s+/).length;
-      if (wordCount < threshold) {
-        return customError({
-          kind: 'min-words',
-          message: `Description needs to be at least ${threshold} words long (currently there are ${wordCount} words)`,
-        });
-      }
-
-      return undefined;
-    });
+    disabled(path, (ctx) => ctx.state.submitting());
+    minWords(path.description, (ctx) => (ctx.valueOf(path.role) === 'author' ? 10 : 5));
 
     apply(path.food, reviewItemSchema);
     apply(path.service, reviewItemSchema);
-
   });
 
   onSubmit() {
-    submit(this.reviewForm, async frm => {
+    submit(this.reviewForm, async (frm) => {
       console.log('starting to submit the form');
       const res = await this.reviewsService.submitReview(frm);
       if (!res) {
         this.submittedSuccessfully.set(true);
       }
       return res;
-    })
+    });
   }
 }
