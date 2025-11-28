@@ -6,4 +6,17 @@
         color: goldenrod;
         cursor: pointer;
     }
+
+    &.disabled {
+        pointer-events: none;
+
+        span {
+            color: lightgray;
+        }
+    }
+    &.readonly {
+        span {
+            cursor: unset;
+        }
+    }
 }
