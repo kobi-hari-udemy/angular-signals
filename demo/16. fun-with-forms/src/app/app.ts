@@ -22,6 +22,7 @@ export class App {
     required(path.username);
     required(path.email);
     email(path.email);
-    minLength(path.description, 5)
+    minLength(path.description, 5), 
+    required(path.description)
   });
 }
