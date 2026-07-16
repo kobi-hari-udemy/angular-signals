@@ -2,15 +2,11 @@
   <h3>Dinner Review Form</h3>
   <div class="field">
     <label>Username:</label>
-    <input type="text" [formField]="reviewForm.username"
-      [class.invalid]="reviewForm.username().invalid() && reviewForm.username().touched()"
-     />
+    <input type="text" [formField]="reviewForm.username"/>
   </div>
   <div class="field">
     <label>Role:</label>
-    <select [formField]="reviewForm.role"
-          [class.invalid]="reviewForm.role().invalid() && reviewForm.role().touched()"
-    >
+    <select [formField]="reviewForm.role">
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
