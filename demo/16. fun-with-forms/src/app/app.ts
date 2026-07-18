@@ -19,10 +19,20 @@ export class App {
   });
 
   readonly reviewForm = form(this.model, path => {
-    required(path.username);
-    required(path.email);
-    email(path.email);
-    minLength(path.description, 5), 
-    required(path.description)
+    required(path.username, {
+      message: 'Username is required'
+    });
+    required(path.email, {
+      message: 'Email is required'
+    });
+    email(path.email, {
+      message: 'Email must be in a valid format'
+    });
+    minLength(path.description, 5, {
+      message: () => `Description must be at least 5 characters long, but it is currently ${this.model().description.length}`
+    });
+    required(path.description, {
+      message: 'Description is required'
+    });
   });
 }

@@ -2,7 +2,10 @@
   <h3>Dinner Review Form</h3>
   <div class="field">
     <label>Username:</label>
-    <input type="text" [formField]="reviewForm.username"/>
+    <input type="text" [formField]="reviewForm.username" />
+    @for (error of reviewForm.username().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
   </div>
   <div class="field">
     <label>Role:</label>
@@ -11,23 +14,33 @@
       <option value="author">Author</option>
       <option value="chef">Chef</option>
     </select>
+    @for (error of reviewForm.role().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
   </div>
   <div class="field">
     <label>Email:</label>
     <input type="email" [formField]="reviewForm.email" />
+    @for (error of reviewForm.email().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
   </div>
   <div class="field">
     <label>Description:</label>
     <textarea [formField]="reviewForm.description"></textarea>
+    @for(error of reviewForm.description().errors(); track error.kind) {
+      <div class="error">{{error.message}}</div>
+    }
   </div>
   <div class="field">
     <label>Rating:</label>
     <input type="number" [formField]="reviewForm.rating" />
+    @for(error of reviewForm.rating().errors(); track error.kind) {
+      <div class="error">{{error.message}}</div>
+    }
   </div>
 
-  <button
-    [disabled]="!reviewForm().valid()"
-  >Submit</button>
+  <button [disabled]="!reviewForm().valid()">Submit</button>
 </div>
 
 <div class="model">
