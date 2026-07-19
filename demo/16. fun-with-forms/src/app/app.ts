@@ -23,7 +23,8 @@ export class App {
       message: 'Username is required'
     });
     required(path.email, {
-      message: 'Email is required'
+      message: 'Email is required', 
+      when: (ctx) => ctx.valueOf(path.role) !== 'author'
     });
     email(path.email, {
       message: 'Email must be in a valid format'
