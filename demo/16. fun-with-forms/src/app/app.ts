@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DinnerReview } from './models/dinner-review.model';
-import { email, form, FormField, minLength, required } from '@angular/forms/signals';
+import { email, form, FormField, minLength, required, validate } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
@@ -28,11 +28,18 @@ export class App {
     email(path.email, {
       message: 'Email must be in a valid format'
     });
-    minLength(path.description, 5, {
-      message: () => `Description must be at least 5 characters long, but it is currently ${this.model().description.length}`
-    });
-    required(path.description, {
-      message: 'Description is required'
-    });
+    validate(path.description, (ctx) => {
+      const value = ctx.value();
+      const wordsCount = value.trim().split(/\s+/).length;
+      if (wordsCount < 10) {
+        return {
+          kind: 'min-words', 
+          message: `Must have at least 10 words. Current count: ${wordsCount}`
+        }
+
+      }
+      return null;
+
+    })
   });
 }
