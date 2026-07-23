@@ -54,16 +54,16 @@ In this repository you can find all material for the course
 ### Section 8 - Introduction to Signal Forms
 * Basic Forms
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic)
-  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic?title=Basic%20Signal%20Forms&file=README.md)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/18.%20fun-with-forms%20-%20basic?title=Basic%20Signals%20Forms&file=README.md)
 * Advanced Forms
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced)
-  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced?title=Advanced%20Signal%20Forms&file=README.md)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/19.%20fun-with-forms%20-%20advanced?title=Advanced%20Signals%20Forms&file=README.md)
 * Nested Forms
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/main/practice/20.%20fun-with-forms%20-%20nested)
-  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/20.%20fun-with-forms%20-%20nested?title=Advanced%20Signal%20Forms&file=README.md)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/main/practice/20.%20fun-with-forms%20-%20nested?title=Nested%20Signals%20Forms&file=README.md)
 * Form Arrays
   * [GitHub](https://github.com/kobi-hari-udemy/angular-signals/tree/49bdaa595846d2d50e3fb155d9d3119cab2b230f/practice/21.%20fun-with-forms%20-%20arrays)
-  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/49bdaa595846d2d50e3fb155d9d3119cab2b230f/practice/21.%20fun-with-forms%20-%20arrays?title=Advanced%20Signal%20Forms&file=README.md)
+  * [StackBlitz](https://stackblitz.com/fork/github//kobi-hari-udemy/angular-signals/tree/49bdaa595846d2d50e3fb155d9d3119cab2b230f/practice/21.%20fun-with-forms%20-%20arrays?title=Form%20Arrays%20Signals%20Forms&file=README.md)
 
 ### Section 9 - Signal Forms Reusability
 * Reusable Directive and Components
