@@ -34,29 +34,59 @@
       <div class="error">{{ error.message }}</div>
     }
   </div>
-  <!-- <div class="field">
-    <label>Rating:</label>
-    <input type="number" [formField]="reviewForm.rating" />
-    @for (error of reviewForm.rating().errors(); track error.kind) {
-      <div class="error">{{ error.message }}</div>
-    }
+  <div class="sub-form">
+    <h4>Food</h4>
+    <div class="field">
+      <label>Rating:</label>
+      <input type="number" [formField]="reviewForm.food.rating" />
+      @for (error of reviewForm.food.rating().errors(); track error.kind) {
+        <div class="error">{{ error.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Recommendation:</label>
+      <select
+        [formField]="reviewForm.food.recommendation"
+        [class.invalid]="
+          reviewForm.food.recommendation().invalid() && reviewForm.food.recommendation().touched()
+        "
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+      @for (err of reviewForm.food.recommendation().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+      }
+    </div>
   </div>
-  <div class="field">
-    <label>Recommendation:</label>
-    <select
-      [formField]="reviewForm.recommendation"
-      [class.invalid]="
-        reviewForm.recommendation().invalid() && reviewForm.recommendation().touched()
-      "
-    >
-      <option value="no-opinion">No Opinion</option>
-      <option value="recommend">Would Recommend</option>
-      <option value="not-recommend">Would Not Recommend</option>
-    </select>
-    @for (err of reviewForm.recommendation().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-    }
-  </div> -->
+
+  <div class="sub-form">
+    <h4>Service</h4>
+    <div class="field">
+      <label>Rating:</label>
+      <input type="number" [formField]="reviewForm.service.rating" />
+      @for (error of reviewForm.service.rating().errors(); track error.kind) {
+        <div class="error">{{ error.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Recommendation:</label>
+      <select
+        [formField]="reviewForm.service.recommendation"
+        [class.invalid]="
+          reviewForm.service.recommendation().invalid() && reviewForm.service.recommendation().touched()
+        "
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+      @for (err of reviewForm.service.recommendation().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+      }
+    </div>
+  </div>
 
   <button [disabled]="!reviewForm().valid()">Submit</button>
 </div>
