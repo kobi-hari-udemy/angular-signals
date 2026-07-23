@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { email, form, FormField, required, submit, validate, validateTree } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
-import { customError, email, Field, form, minLength, required, validate } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Field],
+  imports: [CommonModule, FormField],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -21,31 +21,30 @@ export class App {
 
   readonly reviewForm = form(this.model, path => {
     required(path.username, {
-      message: 'Username is required',
+      message: 'Username is required'
     });
     required(path.email, {
-      message: 'Email is required',
+      message: 'Email is required', 
       when: (ctx) => ctx.valueOf(path.role) !== 'author'
     });
     email(path.email, {
-      message: 'Email is not in the correct format',
+      message: 'Email must be in a valid format'
     });
     validate(path.description, (ctx) => {
       const value = ctx.value();
       const threshold = ctx.valueOf(path.role) === 'author'
         ? 10
         : 5;
-
-      // check that there are at least 10 words
-      const wordCount = value.trim().split(/\s+/).length;
-      if (wordCount < threshold) {
-        return customError({
+      const wordsCount = value.trim().split(/\s+/).length;
+      if (wordsCount < threshold) {
+        return {
           kind: 'min-words', 
-          message: `Description needs to be at least ${threshold} words long (currently there are ${wordCount} words)`
-        })
-      }
+          message: `Must have at least ${threshold} words. Current count: ${wordsCount}`
+        }
 
-      return undefined;
-    })
+      }
+      return null;
+
+    });
   });
 }

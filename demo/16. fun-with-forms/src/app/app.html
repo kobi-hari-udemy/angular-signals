@@ -1,34 +1,64 @@
-@if(submittedSuccessfully()) {
-<div class="success-box">Form was submitted successfully!</div>
-}
 <div class="form">
   <h3>Dinner Review Form</h3>
-  <app-field label="Username">
-    <input type="text" [field]="reviewForm.username" />
-  </app-field>
-  <app-field label="Role">
-    <select [field]="reviewForm.role">
+  <div class="field">
+    <label>Username:</label>
+    <input type="text" [formField]="reviewForm.username" />
+    @for (error of reviewForm.username().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
+  </div>
+  <div class="field">
+    <label>Role:</label>
+    <select [formField]="reviewForm.role">
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
     </select>
-  </app-field>
-  <app-field label="Email">
-    <input type="email" [field]="reviewForm.email" />
-  </app-field>
-  <app-field label="Description">
-    <textarea [field]="reviewForm.description"></textarea>
-  </app-field>
-
-  <app-review-item-form [field]="reviewForm.food" header="Food" />
-
-  <app-review-item-form [field]="reviewForm.service" header="Service" />
-
-  @if(reviewForm().submitting()) {
-  <div>Please wait...</div>
+    @for (error of reviewForm.role().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
+  </div>
+  @if (!reviewForm.email().hidden()) {
+    <div class="field">
+      <label>Email:</label>
+      <input type="email" [formField]="reviewForm.email" />
+      @for (error of reviewForm.email().errors(); track error.kind) {
+        <div class="error">{{ error.message }}</div>
+      }
+    </div>
   }
+  <div class="field">
+    <label>Description:</label>
+    <textarea [formField]="reviewForm.description"></textarea>
+    @for (error of reviewForm.description().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
+  </div>
+  <!-- <div class="field">
+    <label>Rating:</label>
+    <input type="number" [formField]="reviewForm.rating" />
+    @for (error of reviewForm.rating().errors(); track error.kind) {
+      <div class="error">{{ error.message }}</div>
+    }
+  </div>
+  <div class="field">
+    <label>Recommendation:</label>
+    <select
+      [formField]="reviewForm.recommendation"
+      [class.invalid]="
+        reviewForm.recommendation().invalid() && reviewForm.recommendation().touched()
+      "
+    >
+      <option value="no-opinion">No Opinion</option>
+      <option value="recommend">Would Recommend</option>
+      <option value="not-recommend">Would Not Recommend</option>
+    </select>
+    @for (err of reviewForm.recommendation().errors(); track err.kind) {
+      <div class="error">{{ err.message }}</div>
+    }
+  </div> -->
 
-  <button (click)="onSubmit()">Submit</button>
+  <button [disabled]="!reviewForm().valid()">Submit</button>
 </div>
 
 <div class="model">

@@ -1,9 +1,0 @@
-@for(i of stars(); track $index) {
-    <span class="material-icons" (click)="setValue(i)">
-        @if(value() >= i) {
-            star
-        } @else {
-            star_outline
-        }
-    </span>
-}

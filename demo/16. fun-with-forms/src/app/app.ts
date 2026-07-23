@@ -1,80 +1,59 @@
-import { Component, effect, inject, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { disabled, email, form, FormField, hidden, readonly, required, submit, validate, validateTree } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
-import {
-  apply,
-  applyEach,
-  customError,
-  disabled,
-  email,
-  Field,
-  form,
-  max,
-  min,
-  minLength,
-  required,
-  submit,
-  validate,
-  validateTree,
-} from '@angular/forms/signals';
-import { ReviewsService } from './services/reviews-service';
-import { FieldStyleDirective } from './shared/field-styling.directive';
-import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
-import { ReviewItemForm } from './shared/review-item-form/review-item-form';
-import { reviewItemSchema } from './schemas/review-item-schema';
-import { minWords } from './schemas/min-words-validator';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, Field, FieldStyleDirective, FieldWrapper, ReviewItemForm],
+  imports: [CommonModule, FormField],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
-  readonly reviewsService = inject(ReviewsService);
-  readonly submittedSuccessfully = signal(false);
-
   readonly model = signal<DinnerReview>({
     username: 'Kobi Hari',
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
     food: {
-      rating: 4,
-      recommendation: 'recommend',
+      rating: 1,
+      recommendation: 'no-opinion',
     },
     service: {
-      rating: 5,
-      recommendation: 'recommend',
-    },
+      rating: 1, 
+      recommendation: 'no-opinion'
+    }
   });
 
-  readonly reviewForm = form(this.model, (path) => {
+  readonly reviewForm = form(this.model, path => {
     required(path.username, {
-      message: 'Username is required',
+      message: 'Username is required'
     });
-    required(path.email, {
-      message: 'Email is required',
-      when: (ctx) => ctx.valueOf(path.role) !== 'author',
-    });
+    // required(path.email, {
+    //   message: 'Email is required', 
+    //   when: (ctx) => ctx.valueOf(path.role) !== 'author'
+    // });
+    hidden(path.email, {
+      when: ctx => ctx.valueOf(path.role) === 'author'
+    })
     email(path.email, {
-      message: 'Email is not in the correct format',
+      message: 'Email must be in a valid format'
     });
-    disabled(path, (ctx) => ctx.state.submitting());
-    minWords(path.description, (ctx) => (ctx.valueOf(path.role) === 'author' ? 10 : 5));
+    validate(path.description, (ctx) => {
+      const value = ctx.value();
+      const threshold = ctx.valueOf(path.role) === 'author'
+        ? 10
+        : 5;
+      const wordsCount = value.trim().split(/\s+/).length;
+      if (wordsCount < threshold) {
+        return {
+          kind: 'min-words', 
+          message: `Must have at least ${threshold} words. Current count: ${wordsCount}`
+        }
 
-    apply(path.food, reviewItemSchema);
-    apply(path.service, reviewItemSchema);
-  });
-
-  onSubmit() {
-    submit(this.reviewForm, async (frm) => {
-      console.log('starting to submit the form');
-      const res = await this.reviewsService.submitReview(frm);
-      if (!res) {
-        this.submittedSuccessfully.set(true);
       }
-      return res;
+      return null;
+
     });
-  }
+  });
 }

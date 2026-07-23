@@ -13,7 +13,7 @@ export interface DinnerReview {
     readonly email: string;
     readonly description: string;
     readonly food: ReviewItem;
-    readonly service: ReviewItem;
+    readonly service: ReviewItem; 
 }
 
 
