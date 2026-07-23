@@ -13,10 +13,16 @@ export class App {
   readonly model = signal<DinnerReview>({
     username: 'Kobi Hari',
     role: 'user',
-    email: '',
-    description: 'It was very good and we loved it a lot',
-    rating: 1,
-    recommendation: 'no-opinion',
+    email: 'kobi2294@yahoo.com',
+    description: 'The dinner was very nice, we enjoyed it so much',
+    food: {
+      rating: 1,
+      recommendation: 'no-opinion',
+    },
+    service: {
+      rating: 1, 
+      recommendation: 'no-opinion'
+    }
   });
 
   readonly reviewForm = form(this.model, path => {
@@ -49,27 +55,5 @@ export class App {
       return null;
 
     });
-    validateTree(path, ctx => {
-      const rating = ctx.valueOf(path.rating);
-      const recommendation = ctx.valueOf(path.recommendation);
-
-      if ((rating >= 4) && (recommendation === 'not-recommend')) {
-        return [
-          {
-            kind: 'rating-conflict', 
-            message: 'You cannot give rating of 4 and above and not recommend the dinner', 
-            fieldTree: ctx.fieldTree.rating
-          }, 
-          {
-            kind: 'rating-conflict', 
-            message: 'You cannot give rating of 4 and above and not recommend the dinner', 
-            fieldTree: ctx.fieldTree.recommendation
-          }
-        ]
-      }
-
-      return null;
-
-    })
   });
 }

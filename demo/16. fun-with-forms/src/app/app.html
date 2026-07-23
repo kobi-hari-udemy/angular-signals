@@ -34,7 +34,7 @@
       <div class="error">{{ error.message }}</div>
     }
   </div>
-  <div class="field">
+  <!-- <div class="field">
     <label>Rating:</label>
     <input type="number" [formField]="reviewForm.rating" />
     @for (error of reviewForm.rating().errors(); track error.kind) {
@@ -56,7 +56,7 @@
     @for (err of reviewForm.recommendation().errors(); track err.kind) {
       <div class="error">{{ err.message }}</div>
     }
-  </div>
+  </div> -->
 
   <button [disabled]="!reviewForm().valid()">Submit</button>
 </div>
