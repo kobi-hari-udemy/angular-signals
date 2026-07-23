@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { disabled, email, form, FormField, hidden, readonly, required, submit, validate, validateTree } from '@angular/forms/signals';
+import { disabled, email, form, FormField, hidden, max, min, readonly, required, submit, validate, validateTree } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
 
 @Component({
@@ -39,6 +39,15 @@ export class App {
     email(path.email, {
       message: 'Email must be in a valid format'
     });
+
+    min(path.food.rating, 1, {
+      message: 'Rating must be 1 or above'
+    });
+
+    max(path.food.rating, 5, {
+      message: 'Rating must be 5 or below '
+    });
+
     validate(path.description, (ctx) => {
       const value = ctx.value();
       const threshold = ctx.valueOf(path.role) === 'author'
