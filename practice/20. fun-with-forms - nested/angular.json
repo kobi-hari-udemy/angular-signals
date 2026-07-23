@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "fun-with-signal-forms": {
+    "fun-with-forms": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fun-with-signal-forms:build:production"
+              "buildTarget": "fun-with-forms:build:production"
             },
             "development": {
-              "buildTarget": "fun-with-signal-forms:build:development"
+              "buildTarget": "fun-with-forms:build:development"
             }
           },
           "defaultConfiguration": "development"
