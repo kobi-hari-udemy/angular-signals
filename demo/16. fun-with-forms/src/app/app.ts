@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { disabled, email, form, FormField, readonly, required, submit, validate, validateTree } from '@angular/forms/signals';
+import { disabled, email, form, FormField, hidden, readonly, required, submit, validate, validateTree } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
 
 @Component({
@@ -11,10 +11,10 @@ import { DinnerReview } from './models/dinner-review.model';
 })
 export class App {
   readonly model = signal<DinnerReview>({
-    username: '',
+    username: 'Kobi Hari',
     role: 'user',
     email: '',
-    description: '',
+    description: 'It was very good and we loved it a lot',
     rating: 1,
     recommendation: 'no-opinion',
   });
@@ -27,7 +27,7 @@ export class App {
     //   message: 'Email is required', 
     //   when: (ctx) => ctx.valueOf(path.role) !== 'author'
     // });
-    readonly(path.email, {
+    hidden(path.email, {
       when: ctx => ctx.valueOf(path.role) === 'author'
     })
     email(path.email, {
