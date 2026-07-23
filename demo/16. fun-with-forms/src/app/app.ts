@@ -46,5 +46,27 @@ export class App {
       return null;
 
     });
+    validateTree(path, ctx => {
+      const rating = ctx.valueOf(path.rating);
+      const recommendation = ctx.valueOf(path.recommendation);
+
+      if ((rating >= 4) && (recommendation === 'not-recommend')) {
+        return [
+          {
+            kind: 'rating-conflict', 
+            message: 'You cannot give rating of 4 and above and not recommend the dinner', 
+            fieldTree: ctx.fieldTree.rating
+          }, 
+          {
+            kind: 'rating-conflict', 
+            message: 'You cannot give rating of 4 and above and not recommend the dinner', 
+            fieldTree: ctx.fieldTree.recommendation
+          }
+        ]
+      }
+
+      return null;
+
+    })
   });
 }
