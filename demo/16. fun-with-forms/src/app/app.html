@@ -35,44 +35,46 @@
     }
   </div>
 
-    <!-- <div class="sub-form">
-    <div class="field">
-      <label>Aspect:</label>
-      <input
-        type="text"
-        [formField]="rev.aspect"
-        [class.invalid]="rev.aspect().invalid() && rev.aspect().touched()"
-      />
-      @for(err of rev.aspect().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-      }
+  @for (rev of reviewForm.reviews; track $index) {
+    <div class="sub-form">
+      <div class="field">
+        <label>Aspect:</label>
+        <input
+          type="text"
+          [formField]="rev.aspect"
+          [class.invalid]="rev.aspect().invalid() && rev.aspect().touched()"
+        />
+        @for (err of rev.aspect().errors(); track err.kind) {
+          <div class="error">{{ err.message }}</div>
+        }
+      </div>
+      <div class="field">
+        <label>Rating:</label>
+        <input
+          type="number"
+          [formField]="rev.rating"
+          [class.invalid]="rev.rating().invalid() && rev.rating().touched()"
+        />
+        @for (err of rev.rating().errors(); track err.kind) {
+          <div class="error">{{ err.message }}</div>
+        }
+      </div>
+      <div class="field">
+        <label>Recommendation:</label>
+        <select
+          [formField]="rev.recommendation"
+          [class.invalid]="rev.recommendation().invalid() && rev.recommendation().touched()"
+        >
+          <option value="no-opinion">No Opinion</option>
+          <option value="recommend">Would Recommend</option>
+          <option value="not-recommend">Would Not Recommend</option>
+        </select>
+        @for (err of rev.recommendation().errors(); track err.kind) {
+          <div class="error">{{ err.message }}</div>
+        }
+      </div>
     </div>
-    <div class="field">
-      <label>Rating:</label>
-      <input
-        type="number"
-        [formField]="rev.rating"
-        [class.invalid]="rev.rating().invalid() && rev.rating().touched()"
-      />
-      @for(err of rev.rating().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-      }
-    </div>
-    <div class="field">
-      <label>Recommendation:</label>
-      <select
-        [formField]="rev.recommendation"
-        [class.invalid]="rev.recommendation().invalid() && rev.recommendation().touched()"
-      >
-        <option value="no-opinion">No Opinion</option>
-        <option value="recommend">Would Recommend</option>
-        <option value="not-recommend">Would Not Recommend</option>
-      </select>
-      @for(err of rev.recommendation().errors(); track err.kind) {
-      <div class="error">{{ err.message }}</div>
-      }
-    </div> -->
-
+  }
 
   <button [disabled]="!reviewForm().valid()">Submit</button>
 </div>
