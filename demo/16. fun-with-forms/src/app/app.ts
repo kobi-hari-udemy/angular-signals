@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { email, form, FormField, required, submit, validate, validateTree } from '@angular/forms/signals';
+import { disabled, email, form, FormField, readonly, required, submit, validate, validateTree } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
 
 @Component({
@@ -23,10 +23,13 @@ export class App {
     required(path.username, {
       message: 'Username is required'
     });
-    required(path.email, {
-      message: 'Email is required', 
-      when: (ctx) => ctx.valueOf(path.role) !== 'author'
-    });
+    // required(path.email, {
+    //   message: 'Email is required', 
+    //   when: (ctx) => ctx.valueOf(path.role) !== 'author'
+    // });
+    readonly(path.email, {
+      when: ctx => ctx.valueOf(path.role) === 'author'
+    })
     email(path.email, {
       message: 'Email must be in a valid format'
     });
