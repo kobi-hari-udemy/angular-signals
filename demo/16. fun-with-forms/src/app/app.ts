@@ -15,14 +15,18 @@ export class App {
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
-    food: {
-      rating: 1,
-      recommendation: 'no-opinion',
-    },
-    service: {
-      rating: 1, 
-      recommendation: 'no-opinion'
-    }
+    reviews: [
+      {
+        aspect: 'Food',
+        rating: 4,
+        recommendation: 'recommend',
+      },
+      {
+        aspect: 'Service',
+        rating: 5,
+        recommendation: 'recommend',
+      },
+    ],
   });
 
   readonly reviewForm = form(this.model, path => {
@@ -38,14 +42,6 @@ export class App {
     })
     email(path.email, {
       message: 'Email must be in a valid format'
-    });
-
-    min(path.food.rating, 1, {
-      message: 'Rating must be 1 or above'
-    });
-
-    max(path.food.rating, 5, {
-      message: 'Rating must be 5 or below '
     });
 
     validate(path.description, (ctx) => {
