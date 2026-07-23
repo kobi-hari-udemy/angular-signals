@@ -31,11 +31,14 @@ export class App {
     });
     validate(path.description, (ctx) => {
       const value = ctx.value();
+      const threshold = ctx.valueOf(path.role) === 'author'
+        ? 10
+        : 5;
       const wordsCount = value.trim().split(/\s+/).length;
-      if (wordsCount < 10) {
+      if (wordsCount < threshold) {
         return {
           kind: 'min-words', 
-          message: `Must have at least 10 words. Current count: ${wordsCount}`
+          message: `Must have at least ${threshold} words. Current count: ${wordsCount}`
         }
 
       }
