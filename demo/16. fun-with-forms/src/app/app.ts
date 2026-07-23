@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { email, form, FormField, required, submit, validate, validateTree } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
-import { email, form, FormField, minLength, required, validate } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ export class App {
     email: '',
     description: '',
     rating: 1,
+    recommendation: 'no-opinion',
   });
 
   readonly reviewForm = form(this.model, path => {
@@ -44,6 +45,6 @@ export class App {
       }
       return null;
 
-    })
+    });
   });
 }
