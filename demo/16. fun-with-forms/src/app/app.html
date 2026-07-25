@@ -37,6 +37,7 @@
 
   @for (rev of reviewForm.reviews; track $index) {
     <div class="sub-form">
+      <button (click)="removeReviewItem($index)">Remove</button>
       <div class="field">
         <label>Aspect:</label>
         <input
@@ -75,6 +76,8 @@
       </div>
     </div>
   }
+
+  <button (click)="addReviewItem()">Add Review Item</button>
 
   <button [disabled]="!reviewForm().valid()">Submit</button>
 </div>

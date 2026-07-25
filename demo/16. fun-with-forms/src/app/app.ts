@@ -29,6 +29,27 @@ export class App {
     ],
   });
 
+  addReviewItem() {
+    this.model.update(state => ({
+      ...state, 
+      reviews: [
+        ...state.reviews, 
+        {
+          aspect: '', 
+          rating: 3, 
+          recommendation: 'no-opinion'
+        }
+      ]
+    }))
+  }
+
+  removeReviewItem(index: number) {
+    this.model.update(state => ({
+      ...state, 
+      reviews: state.reviews.filter((ri, i) => i !== index)
+    }))
+  }
+
   readonly reviewForm = form(this.model, path => {
     required(path.username, {
       message: 'Username is required'
