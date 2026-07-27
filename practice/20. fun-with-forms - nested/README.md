@@ -1,4 +1,4 @@
-# Practive 20
+# Practice 20
 
 ### Nested Forms
 - Understanding the "hierarchical" nature of the fields tree
