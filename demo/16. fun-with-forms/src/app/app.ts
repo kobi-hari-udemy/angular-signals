@@ -24,13 +24,13 @@ import { DinnerReview } from './models/dinner-review.model';
 })
 export class App {
   readonly model = signal<DinnerReview>({
-    username: 'Kobi Hari',
+    username: '',
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
     reviews: [
       {
-        aspect: 'Food',
+        aspect: '',
         rating: 4,
         recommendation: 'recommend',
       },
@@ -125,6 +125,11 @@ export class App {
     submission: {
       action: async frm => {
         console.log('We are now submitting the form', frm().value())
+      }, 
+      onInvalid: frm => {
+        console.log('The form is not valid, the errors are: ', frm().errorSummary())
+        const firstInvalid = frm().errorSummary()[0];
+        firstInvalid?.fieldTree().focusBoundControl();
 
       }
     }
