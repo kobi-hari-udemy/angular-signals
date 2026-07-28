@@ -1,34 +1,25 @@
 import { Injectable } from "@angular/core";
 import { DinnerReview } from "../models/dinner-review.model";
-import { FieldTree, TreeValidationResult } from "@angular/forms/signals";
+
+export type ReviewErrorFields = 'email' | 'role';
+export type ReviewErrors = Partial<Record<ReviewErrorFields, string>>;
 
 @Injectable({providedIn: 'root'})
 export class ReviewsService {
-
-    async submitReview(reviewForm: FieldTree<DinnerReview>) {
+    async submitReview(review: DinnerReview): Promise<ReviewErrors> {
         await new Promise(resolve => setTimeout(resolve, 4000));
-        const res: TreeValidationResult[] = [];
+        const res: ReviewErrors = {};
 
-        const review = reviewForm().value();
         // If the email is not in the best-dinner.com domain, reject the review
         if (!review.email.endsWith('@best-dinner.com')) {
-            res.push({
-                message: 'Only best-dinner.com emails are allowed to submit reviews.', 
-                kind: 'email-domain', 
-                fieldTree: reviewForm.email
-            });
+            res.email = 'Only best-dinner.com emails are allowed to submit reviews.';
         }
 
         // If the username is "Kobi Hari", he can only submit reviews as an author
         if ((review.username.toLowerCase() === 'kobi hari') && (review.role !== 'author')) {
-            res.push({
-                message: 'Kobi Hari can only submit reviews as an author.', 
-                kind: 'invalid-role', 
-                fieldTree: reviewForm.role
-            });
+            res.role = 'Kobi Hari can only submit reviews as an author.';
         }
 
-        return res.length ? res : undefined;
-    }
-    
+        return res;
+    }    
 }

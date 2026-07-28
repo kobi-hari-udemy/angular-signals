@@ -2,14 +2,13 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   applyEach,
-  disabled,
   email,
   form,
   FormField,
+  FormRoot,
   hidden,
   max,
   min,
-  readonly,
   required,
   submit,
   validate,
@@ -19,7 +18,7 @@ import { DinnerReview } from './models/dinner-review.model';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormField],
+  imports: [CommonModule, FormField, FormRoot],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
@@ -122,5 +121,12 @@ export class App {
           return null;
         }));
     });
+  }, {
+    submission: {
+      action: async frm => {
+        console.log('We are now submitting the form', frm().value())
+
+      }
+    }
   });
 }

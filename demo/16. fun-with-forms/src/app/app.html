@@ -1,4 +1,4 @@
-<div class="form">
+<form [formRoot]="reviewForm">
   <h3>Dinner Review Form</h3>
   <div class="field">
     <label>Username:</label>
@@ -79,8 +79,8 @@
 
   <button (click)="addReviewItem()">Add Review Item</button>
 
-  <button [disabled]="!reviewForm().valid()">Submit</button>
-</div>
+  <button type="submit">Submit</button>
+</form>
 
 <div class="model">
   <h3>Model Value</h3>
