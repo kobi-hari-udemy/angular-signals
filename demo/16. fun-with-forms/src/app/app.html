@@ -1,3 +1,9 @@
+@if(submittedSuccessfully()) {
+  <div class="success-box">
+    Form was submitted successfully
+  </div>
+}
+
 <form [formRoot]="reviewForm">
   <h3>Dinner Review Form</h3>
   <div class="field">
@@ -79,7 +85,13 @@
 
   <button (click)="addReviewItem()">Add Review Item</button>
 
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="reviewForm().submitting()">
+    @if(reviewForm().submitting()) {
+      Submitting
+    } @else {
+      Submit
+    }
+  </button>
 </form>
 
 <div class="model">

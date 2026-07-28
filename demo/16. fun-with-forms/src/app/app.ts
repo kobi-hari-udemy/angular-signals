@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   applyEach,
+  disabled,
   email,
   form,
   FormField,
@@ -15,6 +16,7 @@ import {
   validateTree,
 } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
+import { ReviewsService } from './services/reviews-service';
 
 @Component({
   selector: 'app-root',
@@ -23,14 +25,16 @@ import { DinnerReview } from './models/dinner-review.model';
   styleUrl: './app.scss',
 })
 export class App {
+  readonly reviewsService = inject(ReviewsService);
+  readonly submittedSuccessfully = signal(false);
   readonly model = signal<DinnerReview>({
-    username: '',
+    username: 'Kobi Hari',
     role: 'user',
     email: 'kobi2294@yahoo.com',
     description: 'The dinner was very nice, we enjoyed it so much',
     reviews: [
       {
-        aspect: '',
+        aspect: 'Food',
         rating: 4,
         recommendation: 'recommend',
       },
@@ -76,6 +80,9 @@ export class App {
     });
     email(path.email, {
       message: 'Email must be in a valid format',
+    });
+    disabled(path, {
+      when: ctx => ctx.fieldTree().submitting()
     });
 
     validate(path.description, (ctx) => {
@@ -124,7 +131,11 @@ export class App {
   }, {
     submission: {
       action: async frm => {
-        console.log('We are now submitting the form', frm().value())
+        const value = frm().value();
+        console.log('We are now submitting the form', value);
+        await this.reviewsService.submitReview(value);
+        console.log('Submission completed');
+        this.submittedSuccessfully.set(true);
       }, 
       onInvalid: frm => {
         console.log('The form is not valid, the errors are: ', frm().errorSummary())
