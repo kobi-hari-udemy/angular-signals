@@ -4,6 +4,7 @@ import {
   applyEach,
   disabled,
   email,
+  FieldTree,
   form,
   FormField,
   FormRoot,
@@ -12,11 +13,13 @@ import {
   min,
   required,
   submit,
+  TreeValidationResult,
   validate,
   validateTree,
+  ValidationError,
 } from '@angular/forms/signals';
 import { DinnerReview } from './models/dinner-review.model';
-import { ReviewsService } from './services/reviews-service';
+import { ReviewErrors, ReviewsService } from './services/reviews-service';
 
 @Component({
   selector: 'app-root',
@@ -133,9 +136,11 @@ export class App {
       action: async frm => {
         const value = frm().value();
         console.log('We are now submitting the form', value);
-        await this.reviewsService.submitReview(value);
+        const submitResult = await this.reviewsService.submitReview(value);
+        const treeValidationResult = toTreeValidationResult(submitResult, frm);
         console.log('Submission completed');
-        this.submittedSuccessfully.set(true);
+        if (!treeValidationResult) this.submittedSuccessfully.set(true);
+        return treeValidationResult;
       }, 
       onInvalid: frm => {
         console.log('The form is not valid, the errors are: ', frm().errorSummary())
@@ -145,4 +150,29 @@ export class App {
       }
     }
   });
+}
+
+
+function toTreeValidationResult(result: ReviewErrors, frm: FieldTree<DinnerReview>): TreeValidationResult {
+  if (Object.keys(result).length === 0) return null;
+
+  const res: ValidationError.WithFieldTree[] = [];
+
+  if (result.email) {
+    res.push({
+      kind: 'submit-error', 
+      message: result.email, 
+      fieldTree: frm.email
+    })
+  }
+
+  if (result.role) {
+    res.push({
+      kind: 'submit-error', 
+      message: result.role, 
+      fieldTree: frm.role
+    })
+  }
+
+  return res;
 }
