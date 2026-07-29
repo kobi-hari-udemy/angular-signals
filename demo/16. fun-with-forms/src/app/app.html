@@ -23,33 +23,8 @@
     <textarea [formField]="reviewForm.description"></textarea>
   </app-field-wrapper>
 
-  <div class="sub-form">
-    <h4>Food</h4>
-    <app-field-wrapper label="Rating">
-      <input type="number" [formField]="reviewForm.food.rating" />
-    </app-field-wrapper>
-    <app-field-wrapper label="Recommendation">
-      <select [formField]="reviewForm.food.recommendation">
-        <option value="no-opinion">No Opinion</option>
-        <option value="recommend">Would Recommend</option>
-        <option value="not-recommend">Would Not Recommend</option>
-      </select>
-    </app-field-wrapper>
-  </div>
-
-  <div class="sub-form">
-    <h4>Service</h4>
-    <app-field-wrapper label="Rating">
-      <input type="number" [formField]="reviewForm.service.rating" />
-    </app-field-wrapper>
-    <app-field-wrapper label="Recommendation">
-      <select [formField]="reviewForm.service.recommendation">
-        <option value="no-opinion">No Opinion</option>
-        <option value="recommend">Would Recommend</option>
-        <option value="not-recommend">Would Not Recommend</option>
-      </select>
-    </app-field-wrapper>
-  </div>
+  <app-review-item-form header="food" [fieldTree]="reviewForm.food"/>
+  <app-review-item-form header="service" [fieldTree]="reviewForm.service"/>
 
   <button type="submit" [disabled]="reviewForm().submitting()">
     @if (reviewForm().submitting()) {

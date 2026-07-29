@@ -20,10 +20,11 @@ import {
 import { DinnerReview } from './models/dinner-review.model';
 import { ReviewErrors, ReviewsService } from './services/reviews-service';
 import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
+import { ReviewItemForm } from './shared/review-item-form/review-item-form';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormField, FormRoot, FieldWrapper],
+  imports: [CommonModule, FormField, FormRoot, FieldWrapper, ReviewItemForm],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
