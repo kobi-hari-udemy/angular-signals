@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+  apply,
   applyEach,
   disabled,
   email,
@@ -21,6 +22,7 @@ import { DinnerReview } from './models/dinner-review.model';
 import { ReviewErrors, ReviewsService } from './services/reviews-service';
 import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
 import { ReviewItemForm } from './shared/review-item-form/review-item-form';
+import { reviewItemSchema } from './schemas/review-item-schema';
 
 @Component({
   selector: 'app-root',
@@ -76,33 +78,9 @@ export class App {
         return null;
       });
 
-      // applyEach(path.reviews, (path) => {
-      // min(path.rating, 1, {
-      //   message: 'Min 1',
-      // });
-      // max(path.rating, 5, {
-      //   message: 'Max 5',
-      // });
-      // validateTree(path, (ctx) => {
-      //   const rating = ctx.valueOf(path.rating);
-      //   const recommendation = ctx.valueOf(path.recommendation);
-      //   if (rating >= 4 && recommendation === 'not-recommend') {
-      //     return [
-      //       {
-      //         kind: 'rating-conflict',
-      //         message: 'Rating Conflict',
-      //         fieldTree: ctx.fieldTree.rating,
-      //       },
-      //       {
-      //         kind: 'rating-conflict',
-      //         message: 'Rating Conflict',
-      //         fieldTree: ctx.fieldTree.recommendation,
-      //       },
-      //     ];
-      //   }
-      //   return null;
-      // });
-      // });
+      apply(path.food, reviewItemSchema);
+      apply(path.service, reviewItemSchema);
+
     },
     {
       submission: {
