@@ -7,86 +7,48 @@
   <app-field-wrapper label="Username">
     <input type="text" [formField]="reviewForm.username" />
   </app-field-wrapper>
-  <div class="field">
-    <label>Role:</label>
+  <app-field-wrapper label="Role">
     <select [formField]="reviewForm.role">
       <option value="user">User</option>
       <option value="author">Author</option>
       <option value="chef">Chef</option>
     </select>
-    @for (error of reviewForm.role().errors(); track error.kind) {
-      <div class="error">{{ error.message }}</div>
-    }
-  </div>
+  </app-field-wrapper>
   @if (!reviewForm.email().hidden()) {
-    <div class="field">
-      <label>Email:</label>
+    <app-field-wrapper label="Email">
       <input type="email" [formField]="reviewForm.email" />
-      @for (error of reviewForm.email().errors(); track error.kind) {
-        <div class="error">{{ error.message }}</div>
-      }
-    </div>
+    </app-field-wrapper>
   }
-  <div class="field">
-    <label>Description:</label>
+  <app-field-wrapper label="Description">
     <textarea [formField]="reviewForm.description"></textarea>
-    @for (error of reviewForm.description().errors(); track error.kind) {
-      <div class="error">{{ error.message }}</div>
-    }
-  </div>
+  </app-field-wrapper>
 
   <div class="sub-form">
     <h4>Food</h4>
-    <div class="field">
-      <label>Rating:</label>
-      <input
-        type="number"
-        [formField]="reviewForm.food.rating"
-      />
-      @for (err of reviewForm.food.rating().errors(); track err.kind) {
-        <div class="error">{{ err.message }}</div>
-      }
-    </div>
-    <div class="field">
-      <label>Recommendation:</label>
-      <select
-        [formField]="reviewForm.food.recommendation"
-      >
+    <app-field-wrapper label="Rating">
+      <input type="number" [formField]="reviewForm.food.rating" />
+    </app-field-wrapper>
+    <app-field-wrapper label="Recommendation">
+      <select [formField]="reviewForm.food.recommendation">
         <option value="no-opinion">No Opinion</option>
         <option value="recommend">Would Recommend</option>
         <option value="not-recommend">Would Not Recommend</option>
       </select>
-      @for (err of reviewForm.food.recommendation().errors(); track err.kind) {
-        <div class="error">{{ err.message }}</div>
-      }
-    </div>
+    </app-field-wrapper>
   </div>
 
   <div class="sub-form">
     <h4>Service</h4>
-    <div class="field">
-      <label>Rating:</label>
-      <input
-        type="number"
-        [formField]="reviewForm.service.rating"
-      />
-      @for (err of reviewForm.service.rating().errors(); track err.kind) {
-        <div class="error">{{ err.message }}</div>
-      }
-    </div>
-    <div class="field">
-      <label>Recommendation:</label>
-      <select
-        [formField]="reviewForm.service.recommendation"
-      >
+    <app-field-wrapper label="Rating">
+      <input type="number" [formField]="reviewForm.service.rating" />
+    </app-field-wrapper>
+    <app-field-wrapper label="Recommendation">
+      <select [formField]="reviewForm.service.recommendation">
         <option value="no-opinion">No Opinion</option>
         <option value="recommend">Would Recommend</option>
         <option value="not-recommend">Would Not Recommend</option>
       </select>
-      @for (err of reviewForm.service.recommendation().errors(); track err.kind) {
-        <div class="error">{{ err.message }}</div>
-      }
-    </div>
+    </app-field-wrapper>
   </div>
 
   <button type="submit" [disabled]="reviewForm().submitting()">
