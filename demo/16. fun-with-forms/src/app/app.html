@@ -1,18 +1,12 @@
-@if(submittedSuccessfully()) {
-  <div class="success-box">
-    Form was submitted successfully
-  </div>
+@if (submittedSuccessfully()) {
+  <div class="success-box">Form was submitted successfully</div>
 }
 
 <form [formRoot]="reviewForm">
   <h3>Dinner Review Form</h3>
-  <div class="field">
-    <label>Username:</label>
+  <app-field-wrapper label="Username">
     <input type="text" [formField]="reviewForm.username" />
-    @for (error of reviewForm.username().errors(); track error.kind) {
-      <div class="error">{{ error.message }}</div>
-    }
-  </div>
+  </app-field-wrapper>
   <div class="field">
     <label>Role:</label>
     <select [formField]="reviewForm.role">
@@ -41,52 +35,62 @@
     }
   </div>
 
-  @for (rev of reviewForm.reviews; track $index) {
-    <div class="sub-form">
-      <button (click)="removeReviewItem($index)">Remove</button>
-      <div class="field">
-        <label>Aspect:</label>
-        <input
-          type="text"
-          [formField]="rev.aspect"
-          [class.invalid]="rev.aspect().invalid() && rev.aspect().touched()"
-        />
-        @for (err of rev.aspect().errors(); track err.kind) {
-          <div class="error">{{ err.message }}</div>
-        }
-      </div>
-      <div class="field">
-        <label>Rating:</label>
-        <input
-          type="number"
-          [formField]="rev.rating"
-          [class.invalid]="rev.rating().invalid() && rev.rating().touched()"
-        />
-        @for (err of rev.rating().errors(); track err.kind) {
-          <div class="error">{{ err.message }}</div>
-        }
-      </div>
-      <div class="field">
-        <label>Recommendation:</label>
-        <select
-          [formField]="rev.recommendation"
-          [class.invalid]="rev.recommendation().invalid() && rev.recommendation().touched()"
-        >
-          <option value="no-opinion">No Opinion</option>
-          <option value="recommend">Would Recommend</option>
-          <option value="not-recommend">Would Not Recommend</option>
-        </select>
-        @for (err of rev.recommendation().errors(); track err.kind) {
-          <div class="error">{{ err.message }}</div>
-        }
-      </div>
+  <div class="sub-form">
+    <h4>Food</h4>
+    <div class="field">
+      <label>Rating:</label>
+      <input
+        type="number"
+        [formField]="reviewForm.food.rating"
+      />
+      @for (err of reviewForm.food.rating().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+      }
     </div>
-  }
+    <div class="field">
+      <label>Recommendation:</label>
+      <select
+        [formField]="reviewForm.food.recommendation"
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+      @for (err of reviewForm.food.recommendation().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+      }
+    </div>
+  </div>
 
-  <button (click)="addReviewItem()">Add Review Item</button>
+  <div class="sub-form">
+    <h4>Service</h4>
+    <div class="field">
+      <label>Rating:</label>
+      <input
+        type="number"
+        [formField]="reviewForm.service.rating"
+      />
+      @for (err of reviewForm.service.rating().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+      }
+    </div>
+    <div class="field">
+      <label>Recommendation:</label>
+      <select
+        [formField]="reviewForm.service.recommendation"
+      >
+        <option value="no-opinion">No Opinion</option>
+        <option value="recommend">Would Recommend</option>
+        <option value="not-recommend">Would Not Recommend</option>
+      </select>
+      @for (err of reviewForm.service.recommendation().errors(); track err.kind) {
+        <div class="error">{{ err.message }}</div>
+      }
+    </div>
+  </div>
 
   <button type="submit" [disabled]="reviewForm().submitting()">
-    @if(reviewForm().submitting()) {
+    @if (reviewForm().submitting()) {
       Submitting
     } @else {
       Submit
