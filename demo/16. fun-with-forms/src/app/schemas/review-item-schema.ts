@@ -5,7 +5,7 @@ export const reviewItemSchema = schema<ReviewItem>(path => {
       min(path.rating, 1, {
         message: 'Min 1',
       });
-      max(path.rating, 5, {
+      max(path.rating, 8, {
         message: 'Max 5',
       });
       validateTree(path, (ctx) => {
