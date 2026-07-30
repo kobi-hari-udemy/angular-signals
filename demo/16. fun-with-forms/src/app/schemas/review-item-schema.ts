@@ -1,4 +1,4 @@
-import { max, min, schema, validateTree } from "@angular/forms/signals";
+import { disabled, max, min, readonly, schema, validateTree } from "@angular/forms/signals";
 import { ReviewItem } from "../models/dinner-review.model";
 
 export const reviewItemSchema = schema<ReviewItem>(path => {
@@ -8,6 +8,11 @@ export const reviewItemSchema = schema<ReviewItem>(path => {
       max(path.rating, 8, {
         message: 'Max 5',
       });
+
+      readonly(path.rating, {
+        when: ctx => ctx.valueOf(path.recommendation) === 'no-opinion'
+      });
+
       validateTree(path, (ctx) => {
         const rating = ctx.valueOf(path.rating);
         const recommendation = ctx.valueOf(path.recommendation);
