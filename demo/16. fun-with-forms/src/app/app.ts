@@ -23,6 +23,7 @@ import { ReviewErrors, ReviewsService } from './services/reviews-service';
 import { FieldWrapper } from './shared/field-wrapper/field-wrapper';
 import { ReviewItemForm } from './shared/review-item-form/review-item-form';
 import { reviewItemSchema } from './schemas/review-item-schema';
+import { minWords } from './schemas/min-words-validator';
 
 @Component({
   selector: 'app-root',
@@ -65,18 +66,7 @@ export class App {
         when: (ctx) => ctx.fieldTree().submitting(),
       });
 
-      validate(path.description, (ctx) => {
-        const value = ctx.value();
-        const threshold = ctx.valueOf(path.role) === 'author' ? 10 : 5;
-        const wordsCount = value.trim().split(/\s+/).length;
-        if (wordsCount < threshold) {
-          return {
-            kind: 'min-words',
-            message: `Must have at least ${threshold} words. Current count: ${wordsCount}`,
-          };
-        }
-        return null;
-      });
+      minWords(path.description, ctx => ctx.valueOf(path.role) === 'author' ? 10 : 5);
 
       apply(path.food, reviewItemSchema);
       apply(path.service, reviewItemSchema);
