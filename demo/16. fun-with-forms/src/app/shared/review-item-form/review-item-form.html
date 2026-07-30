@@ -1,7 +1,7 @@
     @let form = fieldTree();
     <h4>{{header()}}</h4>
     <app-field-wrapper label="Rating">
-      <input type="number" [formField]="form.rating" />
+      <app-star-rating [formField]="form.rating" />
     </app-field-wrapper>
     <app-field-wrapper label="Recommendation">
       <select [formField]="form.recommendation">
