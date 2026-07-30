@@ -5,6 +5,11 @@
   }
 </label>
 <ng-content />
+@if(hasMinWords()) {
+  <div class="hint">
+    Minimum {{minWords()}} words
+  </div>
+}
 @for (error of errors(); track error.kind) {
   <div class="error">{{ error.message }}</div>
 }
